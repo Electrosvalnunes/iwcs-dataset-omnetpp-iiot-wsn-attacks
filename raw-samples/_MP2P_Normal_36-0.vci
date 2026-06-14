@@ -1,0 +1,2557 @@
+file 17924618 1779467170                                        
+version 2
+run _MP2P_Normal_36-0-20260522-13:25:47-94531
+attr configname _MP2P_Normal_36
+attr datetime 20260522-13:25:47
+attr experiment _MP2P_Normal_36
+attr inifile omnetpp_RPL_MP2P_36.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network RplNetwork36
+attr processid 94531
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.host[*].numApps 1
+param **.host[*].app[0].typename "\"UdpBasicApp\""
+param **.host[*].app[0].destAddresses "\"sink[0]\""
+param **.host[*].app[0].destPort 1000
+param **.host[*].app[0].messageLength 56B
+param **.host[*].app[0].sendInterval 55s
+param **.host[*].app[0].startTime uniform(0s,90s)
+param **.sink[*].numApps 1
+param **.sink[*].app[0].typename "\"UdpSink\""
+param **.sink[*].app[0].localPort 1000
+param **.host[*].app[0].recordStats true
+param **.sink[*].app[0].recordStats true
+param **.host[*].energyStorage.typename "\"IdealEpEnergyStorage\""
+param **.host[*].energyStorage.nominalCapacity 1000J
+param **.host[*].energyStorage.initialCapacity 1000J
+param **.host[*].wlan[*].radio.energyConsumer.typename "\"StateBasedEpEnergyConsumer\""
+param **.numNodes 36
+param **.hasIpv6 true
+param **.hasIpv4 false
+param **.mtu 1500B
+param **.neighbourDiscovery.raEnabled false
+param **.neighbourDiscovery.addRandomDelays true
+param **.neighbourDiscovery.skipDad true
+param **.radioMedium.typename "\"Ieee802154NarrowbandDimensionalRadioMedium\""
+param **.radio.typename "\"Ieee802154NarrowbandDimensionalRadio\""
+param **.radioMedium.backgroundNoise.power -110dBm
+param **.radioMedium.attenuation.typename "\"LogNormalShadowing\""
+param **.radioMedium.attenuation.pathLossExponent 3.5
+param **.radioMedium.attenuation.sigma 6.0
+param **.wlan[*].typename "\"Ieee802154NarrowbandInterface\""
+param **.wlan[*].mac.typename "\"Ieee802154Mac\""
+param **.wlan[0].radio.transmitter.bitrate 250kbps
+param **.wlan[0].radio.receiver.sensitivity -85dBm
+param **.wlan[0].radio.transmitter.power 1mW
+param **.sink[*].rpl.isRoot true
+param **.sink[*].rpl.storing true
+param **.rpl.numDaoRetransmitAttempts 10
+param **.rpl.daoEnabled true
+param **.rpl.poisoning false
+param **.rpl.useBackupAsPreferred false
+param **.rpl.networkProtocolModule "\"^.ipv6.ipv6\""
+param **.rpl.routingTableModule "\"^.ipv6.routingTable\""
+param **.rpl.drawConnectors true
+param **.numSinks 1
+param **.sensor[*].mobility.typename "\"StationaryMobility\""
+param **.sink[*].mobility.typename "\"StationaryMobility\""
+param **.mobility.constraintAreaMinX 0m
+param **.mobility.constraintAreaMinY 0m
+param **.mobility.constraintAreaMaxX 500m
+param **.mobility.constraintAreaMaxY 500m
+param *.sink[*].mobility.initialZ 0m
+param *.host[*].mobility.typename "\"StationaryMobility\""
+param *.host[*].mobility.initFromDisplayString false
+param *.host[*].mobility.initialZ 0m
+param *.sink[0].mobility.initialX 140m
+param *.sink[0].mobility.initialY 120m
+param *.host[0].mobility.initialX 40m
+param *.host[0].mobility.initialY 0m
+param *.host[1].mobility.initialX 80m
+param *.host[1].mobility.initialY 0m
+param *.host[2].mobility.initialX 120m
+param *.host[2].mobility.initialY 0m
+param *.host[3].mobility.initialX 160m
+param *.host[3].mobility.initialY 0m
+param *.host[4].mobility.initialX 200m
+param *.host[4].mobility.initialY 0m
+param *.host[5].mobility.initialX 240m
+param *.host[5].mobility.initialY 0m
+param *.host[6].mobility.initialX 40m
+param *.host[6].mobility.initialY 40m
+param *.host[7].mobility.initialX 80m
+param *.host[7].mobility.initialY 40m
+param *.host[8].mobility.initialX 120m
+param *.host[8].mobility.initialY 40m
+param *.host[9].mobility.initialX 160m
+param *.host[9].mobility.initialY 40m
+param *.host[10].mobility.initialX 200m
+param *.host[10].mobility.initialY 40m
+param *.host[11].mobility.initialX 240m
+param *.host[11].mobility.initialY 40m
+param *.host[12].mobility.initialX 40m
+param *.host[12].mobility.initialY 80m
+param *.host[13].mobility.initialX 80m
+param *.host[13].mobility.initialY 80m
+param *.host[14].mobility.initialX 120m
+param *.host[14].mobility.initialY 80m
+param *.host[15].mobility.initialX 160m
+param *.host[15].mobility.initialY 80m
+param *.host[16].mobility.initialX 200m
+param *.host[16].mobility.initialY 80m
+param *.host[17].mobility.initialX 240m
+param *.host[17].mobility.initialY 80m
+param *.host[18].mobility.initialX 40m
+param *.host[18].mobility.initialY 120m
+param *.host[19].mobility.initialX 80m
+param *.host[19].mobility.initialY 120m
+param *.host[21].mobility.initialX 160m
+param *.host[21].mobility.initialY 120m
+param *.host[22].mobility.initialX 200m
+param *.host[22].mobility.initialY 120m
+param *.host[23].mobility.initialX 240m
+param *.host[23].mobility.initialY 120m
+param *.host[24].mobility.initialX 40m
+param *.host[24].mobility.initialY 160m
+param *.host[25].mobility.initialX 80m
+param *.host[25].mobility.initialY 160m
+param *.host[26].mobility.initialX 120m
+param *.host[26].mobility.initialY 160m
+param *.host[27].mobility.initialX 160m
+param *.host[27].mobility.initialY 160m
+param *.host[28].mobility.initialX 200m
+param *.host[28].mobility.initialY 160m
+param *.host[29].mobility.initialX 240m
+param *.host[29].mobility.initialY 160m
+param *.host[30].mobility.initialX 40m
+param *.host[30].mobility.initialY 200m
+param *.host[31].mobility.initialX 80m
+param *.host[31].mobility.initialY 200m
+param *.host[32].mobility.initialX 120m
+param *.host[32].mobility.initialY 200m
+param *.host[33].mobility.initialX 160m
+param *.host[33].mobility.initialY 200m
+param *.host[34].mobility.initialX 200m
+param *.host[34].mobility.initialY 200m
+param *.host[35].mobility.initialX 240m
+param *.host[35].mobility.initialY 200m
+param **.host[*].numApps 1
+param **.host[*].app[0].typename "\"UdpBasicApp\""
+param **.host[*].app[0].destAddresses "\"sink[0]\""
+param **.host[*].app[0].destPort 1000
+param **.host[*].app[0].messageLength 56B
+param **.host[*].app[0].sendInterval 55s
+param **.host[*].app[0].startTime uniform(0s,90s)
+param **.host[*].app[0].stopTime 3550s
+param **.sink[*].numApps 1
+param **.sink[*].app[0].typename "\"UdpSink\""
+param **.sink[*].app[0].localPort 1000
+param **.host[*].energyStorage.typename "\"IdealEpEnergyStorage\""
+param **.host[*].energyStorage.nominalCapacity 1000J
+param **.host[*].energyStorage.initialCapacity 1000J
+param **.host[*].wlan[*].radio.energyConsumer.typename "\"StateBasedEpEnergyConsumer\""
+param **.Attack[*].energyStorage.typename "\"IdealEpEnergyStorage\""
+param **.Attack[*].energyStorage.nominalCapacity 1000J
+param **.Attack[*].energyStorage.initialCapacity 1000J
+param **.Attack[*].wlan[*].radio.energyConsumer.typename "\"StateBasedEpEnergyConsumer\""
+param *.visualizer.dataLinkVisualizer[*].displayLinks true
+param *.visualizer.physicalLinkVisualizer[*].displayLinks true
+param *.visualizer.mediumVisualizer.displayCommunicationRanges true
+param *.visualizer.networkRouteVisualizer.displayRoutes true
+param *.visualizer.*.numDataLinkVisualizers 4
+param *.visualizer.*.dataLinkVisualizer[*].displayLinks true
+param *.visualizer.*.dataLinkVisualizer[*].activityLevel "\"peer\""
+param *.visualizer.*.dataLinkVisualizer[0].packetFilter "\"UDP*\""
+param *.visualizer.*.dataLinkVisualizer[0].*Color "\"blue\""
+param *.visualizer.*.dataLinkVisualizer[1].packetFilter "\"DIO* or DIS* or DAO*\""
+param *.visualizer.*.dataLinkVisualizer[1].*Color "\"green\""
+param *.visualizer.*.dataLinkVisualizer[2].packetFilter "\"RERR* or ICMP*\""
+param *.visualizer.*.dataLinkVisualizer[2].*Color "\"red\""
+param *.visualizer.*.dataLinkVisualizer[3].packetFilter "\"UDP*\""
+param *.visualizer.*.dataLinkVisualizer[3].*Color "\"orange\""
+param **.app[*].packetSent:count.record true
+param **.app[*].packetReceived:count.record true
+param **.host[*].app[0].recordStats true
+param **.sink[*].app[0].recordStats true
+param **.endToEndDelay:vector.record true
+param **.endToEndDelay:stats.record true
+param **.throughput:vector.record true
+param **.throughput:stats.record true
+
+vector 0 RplNetwork36.host[13].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 1 RplNetwork36.host[13].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 2 RplNetwork36.host[13].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 RplNetwork36.host[13].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 4 RplNetwork36.host[13].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 5 RplNetwork36.host[13].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 6 RplNetwork36.host[13].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 7 RplNetwork36.host[13].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 8 RplNetwork36.host[13].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 9 RplNetwork36.host[13].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 10 RplNetwork36.host[7].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 11 RplNetwork36.host[7].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 12 RplNetwork36.host[7].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 13 RplNetwork36.host[7].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 14 RplNetwork36.host[12].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 RplNetwork36.host[12].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 16 RplNetwork36.host[12].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 17 RplNetwork36.host[12].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 18 RplNetwork36.host[14].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 19 RplNetwork36.host[14].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 20 RplNetwork36.host[14].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 21 RplNetwork36.host[14].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 22 RplNetwork36.host[19].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 RplNetwork36.host[19].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 24 RplNetwork36.host[19].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 25 RplNetwork36.host[19].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 26 RplNetwork36.sink[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 27 RplNetwork36.host[6].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 28 RplNetwork36.host[6].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 29 RplNetwork36.host[6].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 30 RplNetwork36.host[6].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 31 RplNetwork36.host[8].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 32 RplNetwork36.host[8].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 33 RplNetwork36.host[8].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 34 RplNetwork36.host[8].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 35 RplNetwork36.host[18].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 36 RplNetwork36.host[18].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 37 RplNetwork36.host[18].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 38 RplNetwork36.host[18].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 39 RplNetwork36.host[15].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 40 RplNetwork36.host[15].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 41 RplNetwork36.host[15].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 42 RplNetwork36.host[10].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 43 RplNetwork36.host[10].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 44 RplNetwork36.host[10].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 45 RplNetwork36.host[22].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 46 RplNetwork36.host[22].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 47 RplNetwork36.host[22].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 48 RplNetwork36.host[17].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 49 RplNetwork36.host[17].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 50 RplNetwork36.host[17].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 51 RplNetwork36.host[14].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 52 RplNetwork36.host[14].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 53 RplNetwork36.host[14].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 54 RplNetwork36.host[14].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 55 RplNetwork36.host[14].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 56 RplNetwork36.host[14].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 57 RplNetwork36.host[14].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 58 RplNetwork36.host[14].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 59 RplNetwork36.host[15].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 60 RplNetwork36.host[9].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 61 RplNetwork36.host[9].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 62 RplNetwork36.host[9].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 63 RplNetwork36.host[9].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 64 RplNetwork36.host[21].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 65 RplNetwork36.host[21].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 66 RplNetwork36.host[21].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 67 RplNetwork36.host[21].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 68 RplNetwork36.sink[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 69 RplNetwork36.sink[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 70 RplNetwork36.host[8].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 71 RplNetwork36.host[13].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 72 RplNetwork36.host[15].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 73 RplNetwork36.sink[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 74 RplNetwork36.sink[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 75 RplNetwork36.sink[0].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 76 RplNetwork36.sink[0].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 77 RplNetwork36.sink[0].app[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, vector"
+attr unit s
+vector 78 RplNetwork36.sink[0].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+vector 79 RplNetwork36.host[26].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 80 RplNetwork36.host[26].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 81 RplNetwork36.host[26].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 82 RplNetwork36.host[26].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 83 RplNetwork36.host[25].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 84 RplNetwork36.host[25].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 85 RplNetwork36.host[25].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 86 RplNetwork36.host[25].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 87 RplNetwork36.host[27].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 88 RplNetwork36.host[27].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 89 RplNetwork36.host[27].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 90 RplNetwork36.host[27].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 91 RplNetwork36.host[19].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 92 RplNetwork36.host[21].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 93 RplNetwork36.host[26].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 94 RplNetwork36.host[22].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 95 RplNetwork36.host[22].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 96 RplNetwork36.host[22].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 97 RplNetwork36.host[22].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 98 RplNetwork36.host[22].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 99 RplNetwork36.host[22].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 100 RplNetwork36.host[22].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 101 RplNetwork36.host[16].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 102 RplNetwork36.host[16].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 103 RplNetwork36.host[16].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 104 RplNetwork36.host[16].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 105 RplNetwork36.host[23].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 106 RplNetwork36.host[23].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 107 RplNetwork36.host[23].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 108 RplNetwork36.host[23].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 109 RplNetwork36.host[28].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 110 RplNetwork36.host[28].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 111 RplNetwork36.host[28].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 112 RplNetwork36.host[28].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 113 RplNetwork36.host[17].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 114 RplNetwork36.host[29].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 115 RplNetwork36.host[29].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 116 RplNetwork36.host[29].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 117 RplNetwork36.host[29].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 118 RplNetwork36.host[13].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 119 RplNetwork36.host[13].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 120 RplNetwork36.host[7].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 121 RplNetwork36.host[12].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 122 RplNetwork36.host[14].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 123 RplNetwork36.host[19].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 124 RplNetwork36.host[19].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 125 RplNetwork36.host[24].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 126 RplNetwork36.host[24].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 127 RplNetwork36.host[24].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 128 RplNetwork36.host[24].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 129 RplNetwork36.sink[0].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 130 RplNetwork36.host[18].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 131 RplNetwork36.host[25].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 132 RplNetwork36.host[9].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 133 RplNetwork36.host[9].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 134 RplNetwork36.host[9].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 135 RplNetwork36.host[9].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 136 RplNetwork36.host[9].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 137 RplNetwork36.host[9].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 138 RplNetwork36.host[3].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 139 RplNetwork36.host[3].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 140 RplNetwork36.host[3].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 141 RplNetwork36.host[3].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 142 RplNetwork36.host[10].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 143 RplNetwork36.host[2].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 144 RplNetwork36.host[2].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 145 RplNetwork36.host[2].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 146 RplNetwork36.host[2].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 147 RplNetwork36.host[4].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 148 RplNetwork36.host[4].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 149 RplNetwork36.host[4].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 150 RplNetwork36.host[4].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 151 RplNetwork36.host[28].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 152 RplNetwork36.host[28].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 153 RplNetwork36.host[28].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 154 RplNetwork36.host[28].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 155 RplNetwork36.host[28].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 156 RplNetwork36.host[28].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 157 RplNetwork36.host[34].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 158 RplNetwork36.host[34].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 159 RplNetwork36.host[34].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 160 RplNetwork36.host[34].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 161 RplNetwork36.host[33].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 162 RplNetwork36.host[33].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 163 RplNetwork36.host[33].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 164 RplNetwork36.host[33].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 165 RplNetwork36.host[35].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 166 RplNetwork36.host[35].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 167 RplNetwork36.host[35].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 168 RplNetwork36.host[35].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 169 RplNetwork36.host[26].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 170 RplNetwork36.host[26].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 171 RplNetwork36.host[26].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 172 RplNetwork36.host[26].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 173 RplNetwork36.host[26].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 174 RplNetwork36.host[26].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 175 RplNetwork36.host[26].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 176 RplNetwork36.host[26].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 177 RplNetwork36.host[32].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 178 RplNetwork36.host[32].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 179 RplNetwork36.host[32].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 180 RplNetwork36.host[32].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 181 RplNetwork36.host[31].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 182 RplNetwork36.host[31].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 183 RplNetwork36.host[31].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 184 RplNetwork36.host[31].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 185 RplNetwork36.host[27].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 186 RplNetwork36.host[32].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 187 RplNetwork36.host[27].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 188 RplNetwork36.host[27].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 189 RplNetwork36.host[27].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 190 RplNetwork36.host[27].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 191 RplNetwork36.host[27].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 192 RplNetwork36.host[27].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 193 RplNetwork36.host[8].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 194 RplNetwork36.host[8].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 195 RplNetwork36.host[8].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 196 RplNetwork36.host[8].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 197 RplNetwork36.host[8].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 198 RplNetwork36.host[8].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 199 RplNetwork36.host[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 200 RplNetwork36.host[1].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 201 RplNetwork36.host[1].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 202 RplNetwork36.host[1].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 203 RplNetwork36.host[29].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 204 RplNetwork36.host[29].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 205 RplNetwork36.host[29].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 206 RplNetwork36.host[29].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 207 RplNetwork36.host[29].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 208 RplNetwork36.host[29].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 209 RplNetwork36.host[29].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 210 RplNetwork36.host[29].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 211 RplNetwork36.host[23].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 212 RplNetwork36.host[23].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 213 RplNetwork36.host[28].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 214 RplNetwork36.host[35].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 215 RplNetwork36.host[17].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 216 RplNetwork36.host[22].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 217 RplNetwork36.host[15].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 218 RplNetwork36.host[15].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 219 RplNetwork36.host[15].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 220 RplNetwork36.host[15].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 221 RplNetwork36.host[15].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 222 RplNetwork36.host[15].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 223 RplNetwork36.host[1].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 224 RplNetwork36.host[1].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 225 RplNetwork36.host[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 226 RplNetwork36.host[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 227 RplNetwork36.host[1].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 228 RplNetwork36.host[1].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 229 RplNetwork36.host[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 230 RplNetwork36.host[0].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 231 RplNetwork36.host[0].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 232 RplNetwork36.host[0].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 233 RplNetwork36.host[35].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 234 RplNetwork36.host[35].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 235 RplNetwork36.host[35].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 236 RplNetwork36.host[35].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 237 RplNetwork36.host[35].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 238 RplNetwork36.host[35].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 239 RplNetwork36.host[35].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 240 RplNetwork36.host[35].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 241 RplNetwork36.host[29].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 242 RplNetwork36.host[34].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 243 RplNetwork36.host[34].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 244 RplNetwork36.host[33].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 245 RplNetwork36.host[17].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 246 RplNetwork36.host[17].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 247 RplNetwork36.host[17].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 248 RplNetwork36.host[17].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 249 RplNetwork36.host[17].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 250 RplNetwork36.host[17].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 251 RplNetwork36.host[11].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 252 RplNetwork36.host[11].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 253 RplNetwork36.host[11].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 254 RplNetwork36.host[11].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 255 RplNetwork36.host[2].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 256 RplNetwork36.host[2].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 257 RplNetwork36.host[2].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 258 RplNetwork36.host[2].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 259 RplNetwork36.host[2].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 260 RplNetwork36.host[2].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 261 RplNetwork36.host[16].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 262 RplNetwork36.host[16].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 263 RplNetwork36.host[16].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 264 RplNetwork36.host[16].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 265 RplNetwork36.host[16].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 266 RplNetwork36.host[16].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 267 RplNetwork36.host[16].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 268 RplNetwork36.host[16].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 269 RplNetwork36.host[10].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 270 RplNetwork36.host[23].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 271 RplNetwork36.host[24].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 272 RplNetwork36.host[24].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 273 RplNetwork36.host[24].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 274 RplNetwork36.host[24].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 275 RplNetwork36.host[24].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 276 RplNetwork36.host[24].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 277 RplNetwork36.host[30].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 278 RplNetwork36.host[30].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 279 RplNetwork36.host[30].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 280 RplNetwork36.host[30].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 281 RplNetwork36.host[33].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 282 RplNetwork36.host[33].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 283 RplNetwork36.host[33].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 284 RplNetwork36.host[33].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 285 RplNetwork36.host[33].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 286 RplNetwork36.host[33].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 287 RplNetwork36.host[33].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 288 RplNetwork36.host[33].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 289 RplNetwork36.host[34].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 290 RplNetwork36.sink[0].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 291 RplNetwork36.sink[0].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 292 RplNetwork36.sink[0].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 293 RplNetwork36.sink[0].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 294 RplNetwork36.host[18].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 295 RplNetwork36.host[18].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 296 RplNetwork36.host[18].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 297 RplNetwork36.host[18].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 298 RplNetwork36.host[18].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 299 RplNetwork36.host[18].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 300 RplNetwork36.host[18].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 301 RplNetwork36.host[18].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 302 RplNetwork36.host[24].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 303 RplNetwork36.host[11].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 304 RplNetwork36.host[11].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 305 RplNetwork36.host[11].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 306 RplNetwork36.host[11].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 307 RplNetwork36.host[11].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 308 RplNetwork36.host[11].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 309 RplNetwork36.host[11].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 310 RplNetwork36.host[11].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 311 RplNetwork36.host[5].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 312 RplNetwork36.host[5].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 313 RplNetwork36.host[5].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 314 RplNetwork36.host[5].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 315 RplNetwork36.host[5].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 316 RplNetwork36.host[10].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 317 RplNetwork36.host[10].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 318 RplNetwork36.host[4].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 319 RplNetwork36.host[9].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 320 RplNetwork36.host[16].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 321 RplNetwork36.host[25].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 322 RplNetwork36.host[25].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 323 RplNetwork36.host[25].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 324 RplNetwork36.host[25].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 325 RplNetwork36.host[25].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 326 RplNetwork36.host[25].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 327 RplNetwork36.host[25].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 328 RplNetwork36.host[25].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 329 RplNetwork36.host[31].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 330 RplNetwork36.host[4].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 331 RplNetwork36.host[4].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 332 RplNetwork36.host[4].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 333 RplNetwork36.host[4].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 334 RplNetwork36.host[4].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 335 RplNetwork36.host[4].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 336 RplNetwork36.host[30].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 337 RplNetwork36.host[30].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 338 RplNetwork36.host[30].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 339 RplNetwork36.host[30].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 340 RplNetwork36.host[30].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 341 RplNetwork36.host[30].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 342 RplNetwork36.host[8].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 343 RplNetwork36.host[8].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 344 RplNetwork36.host[2].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 345 RplNetwork36.host[12].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 346 RplNetwork36.host[12].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 347 RplNetwork36.host[12].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 348 RplNetwork36.host[12].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 349 RplNetwork36.host[12].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 350 RplNetwork36.host[12].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 351 RplNetwork36.host[12].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 352 RplNetwork36.host[12].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 353 RplNetwork36.host[6].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 354 RplNetwork36.host[10].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 355 RplNetwork36.host[10].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 356 RplNetwork36.host[10].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 357 RplNetwork36.host[10].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 358 RplNetwork36.host[19].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 359 RplNetwork36.host[19].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 360 RplNetwork36.host[19].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 361 RplNetwork36.host[19].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 362 RplNetwork36.host[19].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 363 RplNetwork36.host[19].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 364 RplNetwork36.host[23].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 365 RplNetwork36.host[23].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 366 RplNetwork36.host[23].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 367 RplNetwork36.host[23].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 368 RplNetwork36.host[23].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 369 RplNetwork36.host[23].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 370 RplNetwork36.host[32].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 371 RplNetwork36.host[32].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 372 RplNetwork36.host[32].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 373 RplNetwork36.host[32].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 374 RplNetwork36.host[32].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 375 RplNetwork36.host[32].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 376 RplNetwork36.host[22].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 377 RplNetwork36.host[22].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 378 RplNetwork36.host[21].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 379 RplNetwork36.host[21].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 380 RplNetwork36.host[6].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 381 RplNetwork36.host[6].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 382 RplNetwork36.host[6].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 383 RplNetwork36.host[6].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 384 RplNetwork36.host[6].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 385 RplNetwork36.host[6].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 386 RplNetwork36.host[6].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 387 RplNetwork36.host[6].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 388 RplNetwork36.host[0].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 389 RplNetwork36.host[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 390 RplNetwork36.host[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 391 RplNetwork36.host[0].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 392 RplNetwork36.host[0].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 393 RplNetwork36.host[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 394 RplNetwork36.host[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 395 RplNetwork36.host[0].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 396 RplNetwork36.host[0].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 397 RplNetwork36.host[1].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 398 RplNetwork36.host[24].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 399 RplNetwork36.host[24].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 400 RplNetwork36.host[30].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 401 RplNetwork36.host[1].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 402 RplNetwork36.host[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 403 RplNetwork36.host[7].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 404 RplNetwork36.host[7].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 405 RplNetwork36.host[4].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 406 RplNetwork36.host[4].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 407 RplNetwork36.host[3].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 408 RplNetwork36.host[11].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 409 RplNetwork36.host[9].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 410 RplNetwork36.host[9].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 411 RplNetwork36.host[32].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 412 RplNetwork36.host[32].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 413 RplNetwork36.host[5].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 414 RplNetwork36.host[5].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 415 RplNetwork36.host[5].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 416 RplNetwork36.host[5].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 417 RplNetwork36.host[5].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 418 RplNetwork36.host[5].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 419 RplNetwork36.host[10].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 420 RplNetwork36.host[10].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 421 RplNetwork36.host[31].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 422 RplNetwork36.host[31].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 423 RplNetwork36.host[31].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 424 RplNetwork36.host[31].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 425 RplNetwork36.host[31].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 426 RplNetwork36.host[31].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 427 RplNetwork36.host[31].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 428 RplNetwork36.host[31].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 429 RplNetwork36.host[15].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 430 RplNetwork36.host[15].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 431 RplNetwork36.host[28].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 432 RplNetwork36.host[28].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 433 RplNetwork36.host[30].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 434 RplNetwork36.host[30].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 435 RplNetwork36.host[2].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 436 RplNetwork36.host[2].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 437 RplNetwork36.host[20].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 438 RplNetwork36.host[20].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 439 RplNetwork36.host[21].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 440 RplNetwork36.host[21].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 441 RplNetwork36.host[21].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 442 RplNetwork36.host[21].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 443 RplNetwork36.host[21].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 444 RplNetwork36.host[21].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 445 RplNetwork36.host[34].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 446 RplNetwork36.host[34].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 447 RplNetwork36.host[34].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 448 RplNetwork36.host[34].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 449 RplNetwork36.host[34].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 450 RplNetwork36.host[34].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 451 RplNetwork36.host[27].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 452 RplNetwork36.host[27].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 453 RplNetwork36.host[3].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 454 RplNetwork36.host[3].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 455 RplNetwork36.host[3].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 456 RplNetwork36.host[3].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 457 RplNetwork36.host[3].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 458 RplNetwork36.host[3].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 459 RplNetwork36.host[3].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 460 RplNetwork36.host[3].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 461 RplNetwork36.host[7].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 462 RplNetwork36.host[7].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 463 RplNetwork36.host[7].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 464 RplNetwork36.host[7].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 465 RplNetwork36.host[7].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 466 RplNetwork36.host[7].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 467 RplNetwork36.host[5].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 468 RplNetwork36.host[5].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 469 RplNetwork36.host[17].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 470 RplNetwork36.host[17].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 471 RplNetwork36.host[20].wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 472 RplNetwork36.host[20].wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 473 RplNetwork36.host[20].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 474 RplNetwork36.host[20].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 475 RplNetwork36.host[20].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 476 RplNetwork36.host[20].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 477 RplNetwork36.host[20].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 478 RplNetwork36.host[20].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 479 RplNetwork36.host[20].wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 480 RplNetwork36.host[20].wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+76	99462 601916 53776 441680 0.1 3276.8 32768 0 4480 1048320 4696473600
+0	701378 2431 53631 470903 80.218935505888 3546.778114472982 80 73 113 8840 984320
+1	703809 4552 53631 470905 80.218935505888 3546.778242472982 160 0 1 80 80
+2	708361 4552 53633 470943 80.219383505888 3546.782242472982 160 2 3 400 1040
+3	712913 160347 53633 471634 80.219383505888 3571.301496570414 5082 0 0.1 25.001 0.90583700000003
+4	873260 155406 53633 471634 80.219383505888 3571.301496570414 3575 -7.1891230718499 -0.16399986972076 -12704.065276238 60176.969145348
+5	1028666 160347 53633 471634 80.219383505888 3571.301496570414 5082 0 0.1 25.001 0.90583700000003
+6	1189013 90636 53633 471564 80.219383505888 3571.237306177802 3184 0 3 5300 11060
+7	1279649 9104 53633 470943 80.219383505888 3546.782242472982 320 0 2 320 480
+8	1288753 2431 53633 470905 80.219383505888 3546.778242472982 80 73 113 8840 984320
+9	1291184 2836 53633 470905 80.219383505888 3546.778242472982 80 0.000128 0.002368 0.0976 0.00015874048
+10	1294020 64278 53635 471575 80.219575639314 3571.237306233068 2178 0 3 3495 7425
+11	1358298 138597 53635 471575 80.219575639314 3571.237306233068 4282 0 0.1 25.981 1.4732869999999
+12	1496895 113495 53635 471575 80.219575639314 3571.237306233068 2543 -7.1897569804662 -0.16335604727863 -8976.2901218037 42511.203797281
+13	1610390 138597 53635 471575 80.219575639314 3571.237306233068 4282 0 0.1 25.981 1.4732869999999
+14	1748987 57136 53636 471562 80.219575639314 3571.237306044376 1944 0 3 3061 6431
+15	1806123 126063 53636 471562 80.219575639314 3571.237306044376 3910 0 0.1 24.81 1.4741899999999
+16	1932186 98111 53636 471562 80.219575639314 3571.237306044376 2205 -7.1862397579066 -0.16382496909649 -7805.2990265375 36921.588411253
+17	2030297 126063 53636 471562 80.219575639314 3571.237306044376 3910 0 0.1 24.81 1.4741899999999
+18	2156360 97454 53637 471403 80.219575639314 3552.403965115553 3302 0 3 5377 11209
+19	2253814 184991 53637 471403 80.219575639314 3552.403965115553 5692 0 0.1 31.159999999999 1.4953199999999
+20	2438805 168257 53637 471403 80.219575639314 3552.403965115553 3783 -7.1529062409837 -0.16535397403119 -13493.881651126 64010.087500874
+21	2607062 184991 53637 471403 80.219575639314 3552.403965115553 5692 0 0.1 31.159999999999 1.4953199999999
+22	2792053 89900 53638 471576 80.219575639314 3571.237306233068 3052 0 3 4750 10074
+23	2881953 207028 53638 471576 80.219575639314 3571.237306233068 6432 0 0.1 42.699000000001 2.737313
+24	3088981 155924 53638 471576 80.219575639314 3571.237306233068 3506 -7.1970628423425 -0.16835979715498 -12454.788878319 58949.119353144
+25	3244905 207028 53638 471576 80.219575639314 3571.237306233068 6432 0 0.1 42.699000000001 2.737313
+26	3451933 93643 53639 471191 80.21957569458 3548.309649123905 3178 0 3 5029 10893
+27	3545576 39012 53640 471563 80.21957569458 3571.237306177802 1324 0 3 2061 4543
+28	3584588 98619 53640 471644 80.21957569458 3571.301496720265 3066 0 0.1 21.778 1.4762659999999
+29	3683207 72881 53640 471644 80.21957569458 3571.301496720265 1634 -7.1858251054405 -0.16322452738916 -5753.4089225876 27260.158988855
+30	3756088 98619 53640 471644 80.21957569458 3571.301496720265 3066 0 0.1 21.778 1.4762659999999
+31	3854707 64034 53641 471386 80.21957569458 3552.403965060287 2174 0 3 3348 7112
+32	3918741 151337 53641 471459 80.21957569458 3562.433277699059 4694 0 0.1 32.511999999999 2.1404539999999
+33	4070078 110316 53641 471459 80.21957569458 3562.433277699059 2487 -7.1764797899834 -0.16460670338916 -8786.2753698836 41673.699221547
+34	4180394 151337 53641 471459 80.21957569458 3562.433277699059 4694 0 0.1 32.511999999999 2.1404539999999
+35	4331731 57297 53642 471565 80.21957569458 3571.237306177802 1946 0 3 3057 6779
+36	4389028 149573 53642 471645 80.21957569458 3571.301496720265 4658 0 0.1 31.644999999999 2.1095749999999
+37	4538601 108105 53642 471645 80.21957569458 3571.301496720265 2431 -7.1905734574405 -0.16592158338916 -8613.8090935697 40717.773919406
+38	4646706 149573 53642 471645 80.21957569458 3571.301496720265 4658 0 0.1 31.644999999999 2.1095749999999
+39	4796279 201093 53644 471653 80.219575772739 3571.305304303563 6172 0 0.1 33.245999999999 1.5354119999999
+40	4997372 185748 53644 471653 80.219575772739 3571.305304303563 4168 -7.1928789073247 -0.16557465026299 -14961.142596699 71112.749638896
+41	5183120 201093 53644 471653 80.219575772739 3571.305304303563 6172 0 0.1 33.245999999999 1.5354119999999
+42	5384213 162208 53656 471652 80.219575927817 3571.305304303563 5058 0 0.1 33.279 2.1088629999999
+43	5546421 120406 53656 471652 80.219575927817 3571.305304303563 2711 -7.1931917882651 -0.1646369075136 -9568.8610957144 45307.667890305
+44	5666827 162208 53656 471652 80.219575927817 3571.305304303563 5058 0 0.1 33.279 2.1088629999999
+45	5829035 200133 53657 471655 80.219575927817 3571.305304303563 6210 0 0.1 42.272000000001 2.782834
+46	6029168 146969 53657 471655 80.219575927817 3571.305304303563 3312 -7.2005284144769 -0.16846054172536 -11782.948521795 55861.841260991
+47	6176137 200133 53657 471655 80.219575927817 3571.305304303563 6210 0 0.1 42.272000000001 2.782834
+48	6376270 111274 53663 471654 80.219576039591 3571.305304303563 3446 0 0.1 18.575 0.85564500000002
+49	6487544 101028 53663 471654 80.219576039591 3571.305304303563 2271 -7.1841297947374 -0.16332237020945 -8014.2422407889 37817.862062141
+50	6588572 111274 53663 471654 80.219576039591 3571.305304303563 3446 0 0.1 18.575 0.85564500000002
+51	6699846 1960 53721 470732 80.259570158087 3545.259570158087 64 56 56 3584 200704
+52	6701806 1960 53723 470733 80.259570158087 3545.259570158087 64 64 64 4096 262144
+53	6703766 2401 53725 470735 80.259570158087 3545.259570158087 76 73 113 8508 955564
+54	6706167 4502 53725 470737 80.259570158087 3545.261938158087 152 0 1 76 76
+55	6710669 8234 53727 470775 80.261938158087 3545.265938158087 278 2 3 695 1807
+56	6718903 16468 53727 470775 80.261938158087 3545.265938158087 556 0 2 556 834
+57	6735371 2401 53727 470737 80.261938158087 3545.261938158087 76 73 113 8508 955564
+58	6737772 2783 53727 470737 80.261938158087 3545.261938158087 76 0.000128 0.006656 0.099136 0.000190550016
+59	6740555 108866 53732 471653 80.262130291513 3571.305304303563 3686 0 3 5994 12392
+60	6849421 79118 53734 471668 80.262130346779 3571.305304358829 2678 0 3 4365 9281
+61	6928539 163137 53734 471668 80.262130346779 3571.305304358829 5030 0 0.1 28.683999999999 1.5001579999999
+62	7091676 139422 53734 471668 80.262130346779 3571.305304358829 3123 -7.1906390420087 -0.16366699798457 -11084.760318574 52500.501865842
+63	7231098 163137 53734 471668 80.262130346779 3571.305304358829 5030 0 0.1 28.683999999999 1.5001579999999
+64	7394235 97708 53736 471670 80.262130346779 3571.305304358829 3310 0 3 5264 11354
+65	7491943 225036 53736 471670 80.262130346779 3571.305304358829 6964 0 0.1 44.526000000002 2.751232
+66	7716979 175477 53736 471670 80.262130346779 3571.305304358829 3934 -7.2021351527177 -0.17264464469356 -14114.637435509 67161.889556225
+67	7892456 225036 53736 471670 80.262130346779 3571.305304358829 6964 0 0.1 44.526000000002 2.751232
+68	8117492 16156 53770 471191 80.265938291513 3548.309649123905 546 2 3 1365 3549
+69	8133648 32312 53770 471191 80.265938291513 3548.309649123905 1092 0 2 1092 1638
+70	8165960 7755 53771 470781 80.265938291513 3545.265938291513 253 5 113 14981 1624813
+71	8173715 17273 53772 470782 80.265938291513 3545.265938291513 568 5 113 30164 3238432
+72	8190988 17219 53773 470783 80.265938291513 3545.265938291513 568 5 113 23360 2435560
+73	8208207 7781 53775 471119 80.265938291513 3548.309105123905 254 64 64 16256 1040384
+74	8215988 7927 53775 471119 80.265938291513 3548.309105123905 254 1 254 32385 5494655
+75	8223915 7781 53776 471120 80.265938291513 3548.309105123905 254 56 56 14224 796544
+76	8231696 51098 441680 471120 3276.9 3548.3 2715 0 4480 85120 381337600
+77	8282794 10829 53776 471120 80.265938291513 3548.309105123905 254 0.004128133426 0.006368133426 1.326945890204 0.0070674020296429
+78	8293623 7743 53776 471120 80.265938291513 3548.309105123905 254 0 63 8064 341376
+79	8301366 89930 53814 471195 80.266130424939 3548.309649257331 3052 0 3 4935 10261
+80	8391296 176306 53814 471371 80.266130424939 3552.40015734879 5430 0 0.1 30.069999999999 1.5063499999999
+81	8567602 158121 53814 471371 80.266130424939 3552.40015734879 3549 -7.1521010125155 -0.16416857466774 -12636.999369457 59920.500334838
+82	8725723 176306 53814 471371 80.266130424939 3552.40015734879 5430 0 0.1 30.069999999999 1.5063499999999
+83	8902029 82736 53817 471485 80.266130480205 3562.437085291053 2806 0 3 4547 9563
+84	8984765 164271 53817 471485 80.266130480205 3562.437085291053 5064 0 0.1 29.377999999999 1.5225859999999
+85	9149036 141701 53817 471485 80.266130480205 3562.437085291053 3179 -7.1737726025821 -0.16461181296041 -11254.174607998 53292.448907799
+86	9290737 164271 53817 471485 80.266130480205 3562.437085291053 5064 0 0.1 29.377999999999 1.5225859999999
+87	9455008 90204 53818 471203 80.266130480205 3548.309649312597 3062 0 3 4931 10203
+88	9545212 171675 53818 471203 80.266130480205 3548.309649312597 5324 0 0.1 30.298999999999 1.5264529999999
+89	9716887 149783 53818 471203 80.266130480205 3548.309649312597 3371 -7.1468278360454 -0.16588044638054 -12021.566879319 57057.062529211
+90	9866670 171675 53818 471203 80.266130480205 3548.309649312597 5324 0 0.1 30.298999999999 1.5264529999999
+91	10038345 11263 53853 471197 80.266482424939 3548.309649257331 380 5 5 1900 9500
+92	10049608 14929 53854 471198 80.266482424939 3548.309649257331 506 5 5 2530 12650
+93	10064537 13352 53855 470865 80.266482424939 3545.266482424939 442 5 113 15818 1616794
+94	10077889 2516 53891 467172 80.295549539752 3512.600542937871 80 73 113 8840 984320
+95	10080405 4722 53891 467174 80.295549539752 3512.600990937871 160 0 1 80 80
+96	10085127 15922 53893 469107 80.295997539752 3526.398877417406 538 2 3 1345 3497
+97	10101049 82762 53893 471655 80.295997539752 3571.305304303563 2810 0 3 4368 9404
+98	10183811 31844 53893 469107 80.295997539752 3526.398877417406 1076 0 2 1076 1614
+99	10215655 2516 53893 467174 80.295997539752 3512.600990937871 80 73 113 8840 984320
+100	10218171 3001 53893 467174 80.295997539752 3512.600990937871 80 0.000128 0.002368 0.09248 0.00015067136
+101	10221172 93156 53895 471651 80.296189673178 3571.305304170137 3054 0 3 4864 10280
+102	10314328 199742 53895 471651 80.296189673178 3571.305304170137 5984 0 0.1 37.123 2.1509409999999
+103	10514070 157308 53895 471651 80.296189673178 3571.305304170137 3460 -7.1955912163403 -0.16592233134636 -12282.413999667 58163.502685037
+104	10671378 199742 53895 471651 80.296189673178 3571.305304170137 5984 0 0.1 37.123 2.1509409999999
+105	10871120 52206 53897 471671 80.296189673178 3571.305304358829 1712 0 3 2711 5853
+106	10923326 120730 53897 471671 80.296189673178 3571.305304358829 3632 0 0.1 23.861 1.4887969999999
+107	11044056 92867 53897 471671 80.296189673178 3571.305304358829 2041 -7.1867341287177 -0.16372805934636 -7181.8687564862 33849.348738407
+108	11136923 120730 53897 471671 80.296189673178 3571.305304358829 3632 0 0.1 23.861 1.4887969999999
+109	11257653 81430 53898 469950 80.296189673178 3540.252081516718 2680 0 3 4497 9559
+110	11339083 149388 53898 469950 80.296189673178 3540.252081516718 4482 0 0.1 22.813 0.88477100000002
+111	11488471 136845 53898 469950 80.296189673178 3540.252081516718 3020 -7.1266953630335 -0.16356949934636 -10632.81049018 50182.791529457
+112	11625316 149388 53898 469950 80.296189673178 3540.252081516718 4482 0 0.1 22.813 0.88477100000002
+113	11774704 59690 53900 471654 80.296189728444 3571.305304303563 1960 0 3 3211 6729
+114	11834394 48460 53902 469703 80.296189728444 3539.940874044324 1586 0 3 2518 5146
+115	11882854 91190 53902 469703 80.296189728444 3539.940874044324 2720 0 0.1 16.47 0.85991000000002
+116	11974044 78223 53902 469703 80.296189728444 3539.940874044324 1713 -7.1209669000887 -0.16288389945689 -5959.5563034691 28016.858840555
+117	12052267 91190 53902 469703 80.296189728444 3539.940874044324 2720 0 0.1 16.47 0.85991000000002
+118	12143457 2024 53983 470900 81.778114472982 3546.778114472982 64 56 56 3584 200704
+119	12145481 2024 53984 470901 81.778114472982 3546.778114472982 64 64 64 4096 262144
+120	12147505 10060 54031 470948 81.782562606408 3546.782242606408 316 5 113 22100 2429260
+121	12157565 7941 54032 470949 81.782562606408 3546.782242606408 253 5 113 14981 1624813
+122	12165506 15760 54033 471196 81.782562606408 3548.309649257331 506 5 113 16246 1631138
+123	12181266 16030 54034 471023 81.782562606408 3546.782786606408 528 2 3 1320 3432
+124	12197296 32060 54034 471023 81.782562606408 3546.782786606408 1056 0 2 1056 1584
+125	12229356 55218 54076 471477 81.7827547951 3562.437085235787 1818 0 3 2871 6111
+126	12284574 125618 54076 471533 81.7827547951 3571.233498311227 3780 0 0.1 24.363 1.4723009999999
+127	12410192 93990 54076 471533 81.7827547951 3571.233498311227 2075 -7.1853950606225 -0.1661998135902 -7302.1436808782 34473.993210143
+128	12504182 125618 54076 471533 81.7827547951 3571.233498311227 3780 0 0.1 24.363 1.4723009999999
+129	12629800 15408 54111 471028 81.783106739834 3546.782786739834 505 5 5 2525 12625
+130	12645208 9679 54113 471030 81.783106739834 3546.782786739834 316 5 113 8384 810772
+131	12654887 13888 54114 471115 81.783106739834 3548.309105123905 443 5 113 22735 2432435
+132	12668775 2533 54150 471344 81.881735222819 3552.398876926861 78 73 113 8654 966222
+133	12671308 4762 54150 471346 81.881735222819 3552.399964926861 156 0 1 78 78
+134	12676070 8626 54152 471384 81.882183222819 3552.403964926861 282 2 3 705 1833
+135	12684696 17252 54152 471384 81.882183222819 3552.403964926861 564 0 2 564 846
+136	12701948 2533 54152 471346 81.882183222819 3552.399964926861 78 73 113 8654 966222
+137	12704481 2927 54152 471346 81.882183222819 3552.399964926861 78 0.000128 0.002368 0.093824 0.000148078592
+138	12707408 52052 54154 471385 81.882375356245 3552.403965060287 1706 0 3 2768 5778
+139	12759460 102056 54154 471470 81.882375356245 3562.433277880359 3048 0 0.1 16.938 0.83557600000001
+140	12861516 91661 54154 471470 81.882375356245 3562.433277880359 2012 -7.1654745557608 -0.16625774271249 -7107.8793567093 33644.123238672
+141	12953177 102056 54154 471470 81.882375356245 3562.433277880359 3048 0 0.1 16.938 0.83557600000001
+142	13055233 70006 54156 471652 81.882375356245 3571.305304303563 2306 0 3 3623 7803
+143	13125239 44322 54158 471401 81.882375411511 3552.403965115553 1450 0 3 2376 5116
+144	13169561 93469 54158 471401 81.882375411511 3552.403965115553 2798 0 0.1 16.317 0.86160900000001
+145	13263030 79838 54158 471401 81.882375411511 3552.403965115553 1750 -7.1458934662311 -0.16605262282302 -6173.5887390057 29250.675519184
+146	13342868 93469 54158 471401 81.882375411511 3552.403965115553 2798 0 0.1 16.317 0.86160900000001
+147	13436337 44180 54159 471402 81.882375411511 3552.403965115553 1454 0 3 2257 4873
+148	13480517 109153 54159 471402 81.882375411511 3552.403965115553 3310 0 0.1 22.67 1.4806799999999
+149	13589670 77980 54159 471402 81.882375411511 3552.403965115553 1714 -7.1476663836768 -0.16610237226869 -5994.3570656837 28278.369513128
+150	13667650 109153 54159 471402 81.882375411511 3552.403965115553 3310 0 0.1 22.67 1.4806799999999
+151	13776803 2503 54243 468987 82.577964201834 3526.39324528398 79 73 113 8767 978991
+152	13779306 4698 54243 468989 82.577964201834 3526.39433328398 158 0 1 79 79
+153	13784004 4698 54245 469027 82.579052201834 3526.39833328398 158 2 3 395 1027
+154	13788702 9396 54245 469027 82.579052201834 3526.39833328398 316 0 2 316 474
+155	13798098 2503 54245 468989 82.579052201834 3526.39433328398 79 73 113 8767 978991
+156	13800601 2902 54245 468989 82.579052201834 3526.39433328398 79 0.000128 0.002368 0.095872 0.000163536896
+157	13803503 40578 54250 469871 82.57924433526 3540.251537383292 1328 0 3 2006 4242
+158	13844081 101467 54250 469871 82.57924433526 3540.251537383292 3052 0 0.1 21.73 1.46415
+159	13945548 68877 54250 469871 82.57924433526 3540.251537383292 1511 -7.1233286674768 -0.16790369738066 -5264.1260897055 24763.109316321
+160	14014425 101467 54250 469871 82.57924433526 3540.251537383292 3052 0 0.1 21.73 1.46415
+161	14115892 44216 54253 471124 82.579244390526 3548.309105179171 1450 0 3 2260 4890
+162	14160108 109034 54253 471124 82.579244390526 3548.309105179171 3296 0 0.1 22.244 1.4499779999999
+163	14269142 80247 54253 471124 82.579244390526 3548.309105179171 1761 -7.1397056983584 -0.16854063278105 -6183.6222418713 29171.125912355
+164	14349389 109034 54253 471124 82.579244390526 3548.309105179171 3296 0 0.1 22.244 1.4499779999999
+165	14458423 23266 54254 469697 82.579244390526 3539.940873989058 762 0 3 1208 2704
+166	14481689 60780 54254 469744 82.579244390526 3539.941066255909 1834 0 0.1 12.368 0.818006
+167	14542469 48279 54254 469744 82.579244390526 3539.941066255909 1057 -7.1162817805118 -0.16700309678105 -3655.4142585898 17118.918892161
+168	14590748 60780 54254 469744 82.579244390526 3539.941066255909 1834 0 0.1 12.368 0.818006
+169	14651528 2024 54337 471066 83.303696990479 3548.303696990479 64 56 56 3584 200704
+170	14653552 2024 54339 471067 83.303696990479 3548.303696990479 64 64 64 4096 262144
+171	14655576 2533 54341 471069 83.303696990479 3548.303696990479 78 73 113 8734 981102
+172	14658109 4758 54341 471071 83.303696990479 3548.305104990479 156 0 1 78 78
+173	14662867 8620 54343 471109 83.303824990479 3548.309104990479 282 2 3 705 1833
+174	14671487 17240 54343 471109 83.303824990479 3548.309104990479 564 0 2 564 846
+175	14688727 2533 54343 471071 83.303824990479 3548.305104990479 78 73 113 8734 981102
+176	14691260 2925 54343 471071 83.303824990479 3548.305104990479 78 0.000128 0.002368 0.094144 0.000155430912
+177	14694185 44325 54348 471113 83.304017123905 3548.309105123905 1450 0 3 2374 5100
+178	14738510 93504 54348 471166 83.304017123905 3548.309297390756 2798 0 0.1 16.385 0.85261500000001
+179	14832014 77173 54348 471166 83.304017123905 3548.309297390756 1694 -7.1375040027815 -0.16910169824781 -5964.1622610961 28198.394893962
+180	14909187 93504 54348 471166 83.304017123905 3548.309297390756 2798 0 0.1 16.385 0.85261500000001
+181	15002691 40462 54351 471478 83.304017179171 3562.437085235787 1324 0 3 2132 4508
+182	15043153 84951 54351 471544 83.304017179171 3571.233498466305 2542 0 0.1 15.168 0.82510600000001
+183	15128104 71341 54351 471544 83.304017179171 3571.233498466305 1565 -7.1822481169326 -0.16835529835834 -5464.0211260999 25796.440369597
+184	15199445 84951 54351 471544 83.304017179171 3571.233498466305 2542 0 0.1 15.168 0.82510600000001
+185	15284396 13864 54388 471116 83.307825123905 3548.309105123905 442 5 113 22730 2432410
+186	15298260 8132 54389 471117 83.307825123905 3548.309105123905 253 5 113 21785 2427685
+187	15306392 2470 54507 469818 83.490236177245 3540.2470891946 80 73 113 8800 976880
+188	15308862 4632 54507 469820 83.490236177245 3540.2475371946 160 0 1 80 80
+189	15313494 8490 54509 469858 83.490364177245 3540.2515371946 286 2 3 715 1859
+190	15321984 16980 54509 469858 83.490364177245 3540.2515371946 572 0 2 572 858
+191	15338964 2470 54509 469820 83.490364177245 3540.2475371946 80 73 113 8800 976880
+192	15341434 2876 54509 469820 83.490364177245 3540.2475371946 80 0.000128 0.002368 0.09344 0.00014548992
+193	15344310 2624 54600 466420 83.75360918185 3503.128931710962 81 73 113 8953 997089
+194	15346934 4934 54600 466422 83.75360918185 3503.129059710962 162 0 1 81 81
+195	15351868 12660 54602 470269 83.75373718185 3541.257648486598 414 2 3 1035 2691
+196	15364528 25320 54602 470269 83.75373718185 3541.257648486598 828 0 2 828 1242
+197	15389848 2624 54602 466422 83.75373718185 3503.129059710962 81 73 113 8953 997089
+198	15392472 3034 54602 466422 83.75373718185 3503.129059710962 81 0.000128 0.002368 0.105408 0.000179359744
+199	15395506 44342 54608 470518 83.753929370542 3543.311623189396 1458 0 3 2332 4838
+200	15439848 89357 54608 470600 83.753929370542 3544.539707103248 2678 0 0.1 15.814 0.82823800000001
+201	15529205 74145 54608 470600 83.753929370542 3544.539707103248 1640 -7.1291956702065 -0.16973643474108 -5766.6274861216 27324.561012293
+202	15603350 89357 54608 470600 83.753929370542 3544.539707103248 2678 0 0.1 15.814 0.82823800000001
+203	15692707 1992 54694 465174 85.365654546767 3495.365654546767 63 56 56 3528 197568
+204	15694699 1992 54695 465175 85.365654546767 3495.365654546767 63 64 64 4032 258048
+205	15696691 2624 54697 465177 85.365654546767 3495.365654546767 81 73 113 8913 989649
+206	15699315 4936 54697 465179 85.365654546767 3495.365782546767 162 0 1 81 81
+207	15704251 4936 54699 465217 85.366422546767 3495.369782546767 162 2 3 405 1053
+208	15709187 9872 54699 465217 85.366422546767 3495.369782546767 324 0 2 324 486
+209	15719059 2624 54699 465179 85.366422546767 3495.365782546767 81 73 113 8913 989649
+210	15721683 3035 54699 465179 85.366422546767 3495.365782546767 81 0.000128 0.002368 0.079168 0.000110383104
+211	15724718 8728 54741 467047 85.370422680193 3508.203993426218 286 2 3 715 1859
+212	15733446 17456 54741 467047 85.370422680193 3508.203993426218 572 0 2 572 858
+213	15750902 15880 54742 469865 85.370422680193 3540.251537328026 504 5 113 29736 3224088
+214	15766782 4113 54743 469700 85.370422680193 3539.940873989058 126 113 113 14238 1608894
+215	15770895 9962 54820 468617 85.370966813619 3523.137382625153 315 5 113 21987 2416491
+216	15780857 11650 54821 470697 85.370966813619 3544.544058773402 378 5 113 8694 812322
+217	15792507 2567 54859 468821 85.440615072749 3525.104167815298 79 73 113 8727 971551
+218	15795074 4828 54859 468823 85.440615072749 3525.106215815298 158 0 1 79 79
+219	15799902 8690 54861 468861 85.440743072749 3525.110215815298 284 2 3 710 1846
+220	15808592 17380 54861 468861 85.440743072749 3525.110215815298 568 0 2 568 852
+221	15825972 2567 54861 468823 85.440743072749 3525.106215815298 79 73 113 8727 971551
+222	15828539 2967 54861 468823 85.440743072749 3525.106215815298 79 0.000128 0.002368 0.097472 0.000167325696
+223	15831506 2532 54954 467829 86.047614447074 3518.356015475001 78 73 113 8654 966222
+224	15834038 4760 54954 467831 86.047614447074 3518.358063475001 156 0 1 78 78
+225	15838798 4760 54956 467869 86.049342447074 3518.362063475001 156 2 3 390 1014
+226	15843558 9520 54956 467869 86.049342447074 3518.362063475001 312 0 2 312 468
+227	15853078 2532 54956 467831 86.049342447074 3518.358063475001 78 73 113 8654 966222
+228	15855610 2926 54956 467831 86.049342447074 3518.358063475001 78 0.000128 0.002368 0.088704 0.000141647872
+229	15858536 26968 54958 470534 86.0495345805 3543.311623244662 882 0 3 1384 2990
+230	15885504 65217 54958 470534 86.0495345805 3543.311623244662 1960 0 0.1 13.065 0.83088500000001
+231	15950721 50916 54958 470534 86.0495345805 3543.311623244662 1114 -7.1237895504893 -0.174336477161 -3926.005053354 18593.173423142
+232	16001637 65217 54958 470534 86.0495345805 3543.311623244662 1960 0 0.1 13.065 0.83088500000001
+233	16066854 1992 55041 465338 86.143963888753 3496.143963888753 63 56 56 3528 197568
+234	16068846 1992 55043 465339 86.143963888753 3496.143963888753 63 64 64 4032 258048
+235	16070838 2560 55045 465341 86.143963888753 3496.143963888753 79 73 113 8687 964111
+236	16073398 4816 55045 465343 86.143963888753 3496.145051888753 158 0 1 79 79
+237	16078214 4816 55047 465381 86.145051888753 3496.149051888753 158 2 3 395 1027
+238	16083030 9632 55047 465381 86.145051888753 3496.149051888753 316 0 2 316 474
+239	16092662 2560 55047 465343 86.145051888753 3496.145051888753 79 73 113 8687 964111
+240	16095222 2961 55047 465343 86.145051888753 3496.145051888753 79 0.000128 0.002368 0.097472 0.000154628096
+241	16098183 6167 55088 469034 86.149052022179 3526.398333417406 189 113 113 21357 2413341
+242	16104350 8684 55089 469694 86.149052022179 3539.940873855632 284 2 3 710 1846
+243	16113034 17368 55089 469694 86.149052022179 3539.940873855632 568 0 2 568 852
+244	16130402 6044 55168 469866 86.149596155605 3540.251537328026 189 5 113 14553 1610469
+245	16136446 2505 55206 470570 86.221516226124 3544.53906650655 79 73 113 8727 971551
+246	16138951 4704 55206 470572 86.221516226124 3544.53951450655 158 0 1 79 79
+247	16143655 4704 55208 470610 86.223244226124 3544.54351450655 158 2 3 395 1027
+248	16148359 9408 55208 470610 86.223244226124 3544.54351450655 316 0 2 316 474
+249	16157767 2505 55208 470572 86.223244226124 3544.53951450655 79 73 113 8727 971551
+250	16160272 2905 55208 470572 86.223244226124 3544.53951450655 79 0.000128 0.002368 0.100032 0.000166547456
+251	16163177 48314 55210 471669 86.22343635955 3571.305304358829 1584 0 3 2577 5451
+252	16211491 98444 55210 471669 86.22343635955 3571.305304358829 2948 0 0.1 17.003 0.86499100000001
+253	16309935 83213 55210 471669 86.22343635955 3571.305304358829 1826 -7.1836013287177 -0.1745635447191 -6410.0269872356 30255.997696039
+254	16393148 98444 55210 471669 86.22343635955 3571.305304358829 2948 0 0.1 17.003 0.86499100000001
+255	16491592 2629 55296 469316 86.446233865125 3529.367042847443 81 73 113 8913 989649
+256	16494221 4946 55296 469318 86.446233865125 3529.367810847443 162 0 1 81 81
+257	16499167 4946 55298 469356 86.446361865125 3529.371810847443 162 2 3 405 1053
+258	16504113 9892 55298 469356 86.446361865125 3529.371810847443 324 0 2 324 486
+259	16514005 2629 55298 469318 86.446361865125 3529.367810847443 81 73 113 8913 989649
+260	16516634 3040 55298 469318 86.446361865125 3529.367810847443 81 0.000128 0.002368 0.098688 0.000160129024
+261	16519674 1992 55385 465501 86.729648765177 3496.729648765177 63 56 56 3528 197568
+262	16521666 1992 55387 465502 86.729648765177 3496.729648765177 63 64 64 4032 258048
+263	16523658 2569 55389 471611 86.729648765177 3571.300536170137 79 73 113 8767 978991
+264	16526227 4830 55389 471613 86.729648765177 3571.301304170137 158 0 1 79 79
+265	16531057 12556 55391 471651 86.731696765177 3571.305304170137 410 2 3 1025 2665
+266	16543613 25112 55391 471651 86.731696765177 3571.305304170137 820 0 2 820 1230
+267	16568725 2569 55391 471613 86.731696765177 3571.301304170137 79 73 113 8767 978991
+268	16571294 2968 55391 471613 86.731696765177 3571.301304170137 79 0.000128 0.002368 0.106432 0.000189485056
+269	16574262 9908 55434 470694 86.735696898603 3544.544058773402 315 5 113 15183 1613619
+270	16584170 7974 55516 470616 86.736241032029 3544.543514639976 252 5 113 14868 1612044
+271	16592144 2531 55553 467665 86.757152018186 3516.124010737985 78 73 113 8654 966222
+272	16594675 4758 55553 467667 86.757152018186 3516.125418737985 156 0 1 78 78
+273	16599433 8620 55555 469271 86.758240018186 3527.847588860524 282 2 3 705 1833
+274	16608053 17240 55555 469271 86.758240018186 3527.847588860524 564 0 2 564 846
+275	16625293 2531 55555 467667 86.758240018186 3516.125418737985 78 73 113 8654 966222
+276	16627824 2925 55555 467667 86.758240018186 3516.125418737985 78 0.000128 0.002368 0.097024 0.000168968192
+277	16630749 26825 55559 471476 86.758432151612 3562.437085102361 882 0 3 1384 2984
+278	16657574 64592 55559 471476 86.758432151612 3562.437085102361 1948 0 0.1 12.942 0.82069400000001
+279	16722166 50722 55559 471476 86.758432151612 3562.437085102361 1114 -7.1616119302047 -0.17569612830322 -3888.5665444743 18336.405632511
+280	16772888 64592 55559 471476 86.758432151612 3562.437085102361 1948 0 0.1 12.942 0.82069400000001
+281	16837480 2441 55643 465670 87.614526488875 3498.14173836261 77 73 113 8541 953453
+282	16839921 4582 55643 465672 87.614526488875 3498.14346636261 154 0 1 77 77
+283	16844503 8446 55645 469773 87.616574488875 3539.941417989058 280 2 3 700 1820
+284	16852949 16892 55645 469773 87.616574488875 3539.941417989058 560 0 2 560 840
+285	16869841 2441 55645 465672 87.616574488875 3498.14346636261 77 73 113 8541 953453
+286	16872282 2830 55645 465672 87.616574488875 3498.14346636261 77 0.000128 0.002368 0.093696 0.000155435008
+287	16875112 1929 55732 465667 88.14173836261 3498.14173836261 63 56 56 3528 197568
+288	16877041 1929 55733 465668 88.14173836261 3498.14173836261 63 64 64 4032 258048
+289	16878970 4112 55781 469035 88.148106496036 3526.398333417406 126 113 113 14238 1608894
+290	16883082 602 55900 460167 89.470135890646 3450.96718176361 19 73 113 1907 197971
+291	16883684 1140 55900 460169 89.470135890646 3450.96858976361 38 0 1 19 19
+292	16884824 602 55902 460169 89.472183890646 3450.96858976361 19 73 113 1907 197971
+293	16885426 703 55902 460169 89.472183890646 3450.96858976361 19 0.000128 0.002368 0.024192 4.1926656e-05
+294	16886129 1992 55990 465921 89.509736918844 3499.509736918844 63 56 56 3528 197568
+295	16888121 1992 55991 465922 89.509736918844 3499.509736918844 63 64 64 4032 258048
+296	16890113 2535 55993 465924 89.509736918844 3499.509736918844 78 73 113 8614 958782
+297	16892648 4768 55993 465926 89.509736918844 3499.512104918844 156 0 1 78 78
+298	16897416 12488 55995 467784 89.510184918844 3516.129962871411 408 2 3 1020 2652
+299	16909904 24976 55995 467784 89.510184918844 3516.129962871411 816 0 2 816 1224
+300	16934880 2535 55995 465926 89.510184918844 3499.512104918844 78 73 113 8614 958782
+301	16937415 2930 55995 465926 89.510184918844 3499.512104918844 78 0.000128 0.002368 0.097024 0.000161595392
+302	16940345 7907 56039 468781 89.51418505227 3523.341101156997 252 5 113 14868 1612044
+303	16948252 1992 56155 466086 89.594353740104 3499.594353740104 63 56 56 3528 197568
+304	16950244 1992 56156 466087 89.594353740104 3499.594353740104 63 64 64 4032 258048
+305	16952236 2626 56158 466089 89.594353740104 3499.594353740104 81 73 113 8913 989649
+306	16954862 4940 56158 466091 89.594353740104 3499.595121740104 162 0 1 81 81
+307	16959802 4940 56160 466129 89.595761740104 3499.599121740104 162 2 3 405 1053
+308	16964742 9880 56160 466129 89.595761740104 3499.599121740104 324 0 2 324 486
+309	16974622 2626 56160 466091 89.595761740104 3499.595121740104 81 73 113 8913 989649
+310	16977248 3037 56160 466091 89.595761740104 3499.595121740104 81 0.000128 0.002368 0.090688 0.000145690624
+311	16980285 30904 56162 470435 89.59595387353 3542.221698053306 1016 0 3 1586 3336
+312	17011189 70096 56162 470506 89.59595387353 3543.307815606098 2112 0 0.1 13.851 0.84438700000001
+313	17081285 54160 56162 470506 89.59595387353 3543.307815606098 1192 -7.1242643352122 -0.18140877174706 -4163.0587937643 19650.792626613
+314	17135445 70096 56162 470506 89.59595387353 3543.307815606098 2112 0 0.1 13.851 0.84438700000001
+315	17205541 4049 56202 468039 89.59976187353 3519.254431467441 126 113 113 14238 1608894
+316	17209590 12302 56203 468530 89.59976187353 3523.136838358301 406 2 3 1015 2639
+317	17221892 24604 56203 468530 89.59976187353 3523.136838358301 812 0 2 812 1218
+318	17246496 6044 56282 470029 89.600306006956 3540.988365101533 189 5 113 14553 1610469
+319	17252540 13892 56283 470276 89.600306006956 3541.257648620024 441 5 113 22617 2419641
+320	17266432 13701 56285 469112 89.600306006956 3526.398877550832 441 5 113 15813 1616769
+321	17280133 1992 56323 466251 90.350631384645 3500.350631384645 63 56 56 3528 197568
+322	17282125 1992 56324 466252 90.350631384645 3500.350631384645 63 64 64 4032 258048
+323	17284117 2597 56326 466254 90.350631384645 3500.350631384645 80 73 113 8840 984320
+324	17286714 4884 56326 466256 90.350631384645 3500.352679384645 160 0 1 80 80
+325	17291598 8746 56328 468775 90.352679384645 3523.341101023571 286 2 3 715 1859
+326	17300344 17492 56328 468775 90.352679384645 3523.341101023571 572 0 2 572 858
+327	17317836 2597 56328 466256 90.352679384645 3500.352679384645 80 73 113 8840 984320
+328	17320433 3002 56328 466256 90.352679384645 3500.352679384645 80 0.000128 0.002368 0.10336 0.00017332224
+329	17323435 6169 56374 469197 90.356679518071 3527.847044860524 189 113 113 21357 2413341
+330	17329604 2591 56492 467994 90.459132604619 3519.248703334015 80 73 113 8800 976880
+331	17332195 4874 56492 467996 90.459132604619 3519.250431334015 160 0 1 80 80
+332	17337069 8612 56494 470433 90.459580604619 3542.22169791988 286 2 3 715 1859
+333	17345681 17224 56494 470433 90.459580604619 3542.22169791988 572 0 2 572 858
+334	17362905 2591 56494 467996 90.459580604619 3519.250431334015 80 73 113 8800 976880
+335	17365496 2997 56494 467996 90.459580604619 3519.250431334015 80 0.000128 0.002368 0.1072 0.00018003968
+336	17368493 2562 56582 471436 92.602863554223 3562.431037102361 79 73 113 8687 964111
+337	17371055 4820 56582 471438 92.602863554223 3562.433085102361 158 0 1 79 79
+338	17375875 4820 56584 471476 92.603631554223 3562.437085102361 158 2 3 395 1027
+339	17380695 9640 56584 471476 92.603631554223 3562.437085102361 316 0 2 316 474
+340	17390335 2562 56584 471438 92.603631554223 3562.433085102361 79 73 113 8687 964111
+341	17392897 2963 56584 471438 92.603631554223 3562.433085102361 79 0.000128 0.002368 0.102272 0.000169680896
+342	17395860 1992 56668 466417 93.128931710962 3503.128931710962 63 56 56 3528 197568
+343	17397852 1992 56669 466418 93.128931710962 3503.128931710962 63 64 64 4032 258048
+344	17399844 8102 56716 470274 93.135299844388 3541.257648620024 252 5 113 21672 2414916
+345	17407946 2535 56927 471522 94.064838192474 3571.230938044376 78 73 113 8654 966222
+346	17410481 4766 56927 471524 94.064838192474 3571.233306044376 156 0 1 78 78
+347	17415247 8626 56929 471562 94.066566192474 3571.237306044376 282 2 3 705 1833
+348	17423873 17252 56929 471562 94.066566192474 3571.237306044376 564 0 2 564 846
+349	17441125 2535 56929 471524 94.066566192474 3571.233306044376 78 73 113 8654 966222
+350	17443660 2929 56929 471524 94.066566192474 3571.233306044376 78 0.000128 0.002368 0.098944 0.000165978112
+351	17446589 1992 57014 466583 94.382848897949 3504.382848897949 63 56 56 3528 197568
+352	17448581 1992 57015 466584 94.382848897949 3504.382848897949 63 64 64 4032 258048
+353	17450573 6044 57061 470195 94.387617031375 3541.257104486598 189 5 113 14553 1610469
+354	17456617 2504 57181 468490 94.825849457582 3523.130470358301 77 73 113 8541 953453
+355	17459121 4708 57181 468492 94.825849457582 3523.132838358301 154 0 1 77 77
+356	17463829 2504 57183 468492 94.827897457582 3523.132838358301 77 73 113 8541 953453
+357	17466333 2893 57183 468492 94.827897457582 3523.132838358301 77 0.000128 0.002368 0.090176 0.000152793088
+358	17469226 1992 57279 466836 97.989860048983 3507.989860048983 63 56 56 3528 197568
+359	17471218 1992 57280 466837 97.989860048983 3507.989860048983 63 64 64 4032 258048
+360	17473210 2407 57282 466839 97.989860048983 3507.989860048983 74 73 113 8322 937466
+361	17475617 4520 57282 466841 97.989860048983 3507.991588048983 148 0 1 74 74
+362	17480137 2407 57284 466841 97.991908048983 3507.991588048983 74 73 113 8322 937466
+363	17482544 2778 57284 466841 97.991908048983 3507.991588048983 74 0.000128 0.002368 0.094592 0.000164929536
+364	17485322 1992 57447 467004 98.197945426218 3508.197945426218 63 56 56 3528 197568
+365	17487314 1992 57448 467005 98.197945426218 3508.197945426218 63 64 64 4032 258048
+366	17489306 2590 57450 467007 98.197945426218 3508.197945426218 80 73 113 8840 984320
+367	17491896 4870 57450 467009 98.197945426218 3508.199993426218 160 0 1 80 80
+368	17496766 2590 57452 467009 98.199033426218 3508.199993426218 80 73 113 8840 984320
+369	17499356 2995 57452 467009 98.199033426218 3508.199993426218 80 0.000128 0.002368 0.10048 0.00017309696
+370	17502351 2598 57613 468325 98.368790492061 3521.819655920845 80 73 113 8800 976880
+371	17504949 4888 57613 468327 98.368790492061 3521.821063920845 160 0 1 80 80
+372	17509837 4888 57615 468365 98.369238492061 3521.825063920845 160 2 3 400 1040
+373	17514725 9776 57615 468365 98.369238492061 3521.825063920845 320 0 2 320 480
+374	17524501 2598 57615 468327 98.369238492061 3521.821063920845 80 73 113 8800 976880
+375	17527099 3004 57615 468327 98.369238492061 3521.821063920845 80 0.000128 0.002368 0.112 0.00020799488
+376	17530103 1993 57797 467169 102.600542937871 3512.600542937871 63 56 56 3528 197568
+377	17532096 1993 57798 467170 102.600542937871 3512.600542937871 63 64 64 4032 258048
+378	17534089 16170 57846 469938 102.606271071297 3540.252081328026 528 2 3 1320 3432
+379	17550259 32340 57846 469938 102.606271071297 3540.252081328026 1056 0 2 1056 1584
+380	17582599 1993 57972 467335 104.039485964458 3514.039485964458 63 56 56 3528 197568
+381	17584592 1993 57973 467336 104.039485964458 3514.039485964458 63 64 64 4032 258048
+382	17586585 2598 57975 467338 104.039485964458 3514.039485964458 80 73 113 8800 976880
+383	17589183 4888 57975 467340 104.039485964458 3514.040573964458 160 0 1 80 80
+384	17594071 8748 57977 467620 104.040253964458 3514.398527340809 286 2 3 715 1859
+385	17602819 17496 57977 467620 104.040253964458 3514.398527340809 572 0 2 572 858
+386	17620315 2598 57977 467340 104.040253964458 3514.040573964458 80 73 113 8800 976880
+387	17622913 3004 57977 467340 104.040253964458 3514.040573964458 80 0.000128 0.002368 0.10112 0.0001622016
+388	17625917 4113 58019 467873 104.044254097884 3518.362063608427 126 113 113 14238 1608894
+389	17630030 1993 58137 467499 104.393215207383 3514.393215207383 63 56 56 3528 197568
+390	17632023 1993 58138 467500 104.393215207383 3514.393215207383 63 64 64 4032 258048
+391	17634016 2599 58140 467502 104.393215207383 3514.393215207383 80 73 113 8800 976880
+392	17636615 4890 58140 467504 104.393215207383 3514.393983207383 160 0 1 80 80
+393	17641505 4890 58142 467542 104.394623207383 3514.397983207383 160 2 3 400 1040
+394	17646395 9780 58142 467542 104.394623207383 3514.397983207383 320 0 2 320 480
+395	17656175 2599 58142 467504 104.394623207383 3514.393983207383 80 73 113 8800 976880
+396	17658774 3005 58142 467504 104.394623207383 3514.393983207383 80 0.000128 0.002368 0.10304 0.00018112512
+397	17661779 6171 58183 470194 104.398623340809 3541.257104486598 189 113 113 21357 2413341
+398	17667950 1994 58481 467662 106.124010737985 3516.124010737985 63 56 56 3528 197568
+399	17669944 1994 58482 467663 106.124010737985 3516.124010737985 63 64 64 4032 258048
+400	17671938 4114 58530 468701 106.129738871411 3523.340557023571 126 113 113 14238 1608894
+401	17676052 1994 58743 467826 108.356015475001 3518.356015475001 63 56 56 3528 197568
+402	17678046 1994 58744 467827 108.356015475001 3518.356015475001 63 64 64 4032 258048
+403	17680040 8570 58792 470517 108.361423608427 3543.31162305597 280 2 3 700 1820
+404	17688610 17140 58792 470517 108.361423608427 3543.31162305597 560 0 2 560 840
+405	17705750 1994 58910 467991 109.248703334015 3519.248703334015 63 56 56 3528 197568
+406	17707744 1994 58911 467992 109.248703334015 3519.248703334015 63 64 64 4032 258048
+407	17709738 8103 58957 470437 109.254111467441 3542.221698053306 252 5 113 21672 2414916
+408	17717841 8041 59039 470614 109.254655600867 3544.543514639976 252 5 113 21672 2414916
+409	17725882 1994 59077 468156 111.120732675772 3521.120732675772 63 56 56 3528 197568
+410	17727876 1994 59078 468157 111.120732675772 3521.120732675772 63 64 64 4032 258048
+411	17729870 1994 59245 468322 111.819655920845 3521.819655920845 63 56 56 3528 197568
+412	17731864 1994 59246 468323 111.819655920845 3521.819655920845 63 64 64 4032 258048
+413	17733858 2621 59412 470315 112.33987090256 3542.215105786454 81 73 113 8913 989649
+414	17736479 4930 59412 470317 112.33987090256 3542.217153786454 162 0 1 81 81
+415	17741409 4930 59414 470355 112.34095890256 3542.221153786454 162 2 3 405 1053
+416	17746339 9860 59414 470355 112.34095890256 3542.221153786454 324 0 2 324 486
+417	17756199 2621 59414 470317 112.34095890256 3542.217153786454 81 73 113 8913 989649
+418	17758820 3032 59414 470317 112.34095890256 3542.217153786454 81 0.000128 0.002368 0.108608 0.000182841344
+419	17761852 1994 59496 468487 113.130470358301 3523.130470358301 63 56 56 3528 197568
+420	17763846 1994 59497 468488 113.130470358301 3523.130470358301 63 64 64 4032 258048
+421	17765840 1994 59662 468653 113.335468890145 3523.335468890145 63 56 56 3528 197568
+422	17767834 1994 59663 468654 113.335468890145 3523.335468890145 63 64 64 4032 258048
+423	17769828 2537 59665 468656 113.335468890145 3523.335468890145 78 73 113 8734 981102
+424	17772365 4766 59665 468658 113.335468890145 3523.336556890145 156 0 1 78 78
+425	17777131 4766 59667 468696 113.336876890145 3523.340556890145 156 2 3 390 1014
+426	17781897 9532 59667 468696 113.336876890145 3523.340556890145 312 0 2 312 468
+427	17791429 2537 59667 468658 113.336876890145 3523.336556890145 78 73 113 8734 981102
+428	17793966 2929 59667 468658 113.336876890145 3523.336556890145 78 0.000128 0.002368 0.103104 0.000179023872
+429	17796895 1994 59827 468818 115.104167815298 3525.104167815298 63 56 56 3528 197568
+430	17798889 1994 59828 468819 115.104167815298 3525.104167815298 63 64 64 4032 258048
+431	17800883 1931 59993 468984 116.39324528398 3526.39324528398 63 56 56 3528 197568
+432	17802814 1931 59994 468985 116.39324528398 3526.39324528398 63 64 64 4032 258048
+433	17804745 1994 60159 469150 117.841636727098 3527.841636727098 63 56 56 3528 197568
+434	17806739 1994 60160 469151 117.841636727098 3527.841636727098 63 64 64 4032 258048
+435	17808733 1994 60322 469313 119.367042847443 3529.367042847443 63 56 56 3528 197568
+436	17810727 1994 60323 469314 119.367042847443 3529.367042847443 63 64 64 4032 258048
+437	17812721 1995 60487 469478 126.255253008567 3536.255253008567 63 56 56 3528 197568
+438	17814716 1995 60488 469479 126.255253008567 3536.255253008567 63 64 64 4032 258048
+439	17816711 1995 60492 469483 128.095185381826 3538.095185381826 63 56 56 3528 197568
+440	17818706 1995 60493 469484 128.095185381826 3538.095185381826 63 64 64 4032 258048
+441	17820701 2441 60495 469486 128.095185381826 3538.095185381826 75 73 113 8435 950235
+442	17823142 4584 60495 469488 128.095185381826 3538.097553381826 150 0 1 75 75
+443	17827726 2441 60497 469488 128.095953381826 3538.097553381826 75 73 113 8435 950235
+444	17830167 2817 60497 469488 128.095953381826 3538.097553381826 75 0.000128 0.002368 0.096 0.0001634304
+445	17832984 1995 60660 469651 129.935785855632 3539.935785855632 63 56 56 3528 197568
+446	17834979 1995 60661 469652 129.935785855632 3539.935785855632 63 64 64 4032 258048
+447	17836974 2566 60663 469654 129.935785855632 3539.935785855632 79 73 113 8727 971551
+448	17839540 4826 60663 469656 129.935785855632 3539.936873855632 158 0 1 79 79
+449	17844366 2566 60665 469656 129.936873855632 3539.936873855632 79 73 113 8727 971551
+450	17846932 2966 60665 469656 129.936873855632 3539.936873855632 79 0.000128 0.002368 0.093632 0.000146886656
+451	17849898 1869 60824 469815 130.2470891946 3540.2470891946 63 56 56 3528 197568
+452	17851767 1869 60825 469816 130.2470891946 3540.2470891946 63 64 64 4032 258048
+453	17853636 1995 60990 469981 130.983916968107 3540.983916968107 63 56 56 3528 197568
+454	17855631 1995 60991 469982 130.983916968107 3540.983916968107 63 64 64 4032 258048
+455	17857626 2536 60993 469984 130.983916968107 3540.983916968107 78 73 113 8654 966222
+456	17860162 4768 60993 469986 130.983916968107 3540.984364968107 156 0 1 78 78
+457	17864930 4768 60995 470024 130.984684968107 3540.988364968107 156 2 3 390 1014
+458	17869698 9536 60995 470024 130.984684968107 3540.988364968107 312 0 2 312 468
+459	17879234 2536 60995 469986 130.984684968107 3540.984364968107 78 73 113 8654 966222
+460	17881770 2930 60995 469986 130.984684968107 3540.984364968107 78 0.000128 0.002368 0.101824 0.000173166592
+461	17884700 1995 61155 470146 131.252656353172 3541.252656353172 63 56 56 3528 197568
+462	17886695 1995 61156 470147 131.252656353172 3541.252656353172 63 64 64 4032 258048
+463	17888690 2506 61158 470477 131.252656353172 3543.30685505597 77 73 113 8621 968333
+464	17891196 4708 61158 470479 131.252656353172 3543.30762305597 154 0 1 77 77
+465	17895904 2506 61160 470479 131.253744353172 3543.30762305597 77 73 113 8621 968333
+466	17898410 2893 61160 470479 131.253744353172 3543.30762305597 77 0.000128 0.002368 0.105216 0.000182550528
+467	17901303 1995 61321 470312 132.215105786454 3542.215105786454 63 56 56 3528 197568
+468	17903298 1995 61322 470313 132.215105786454 3542.215105786454 63 64 64 4032 258048
+469	17905293 1932 61484 470567 134.53906650655 3544.53906650655 63 56 56 3528 197568
+470	17907225 1932 61485 470568 134.53906650655 3544.53906650655 63 64 64 4032 258048
+471	17909157 419 88332 465007 311.688397706486 3493.726592647376 13 113 113 1469 165997
+472	17909576 786 88332 465009 311.688397706486 3493.727680647376 26 0 1 13 13
+473	17910362 786 88334 465047 311.690445706486 3493.731680647376 26 2 3 65 169
+474	17911148 4216 88334 465047 311.690445706486 3493.731680647376 130 0 0.1 1.43 0.13026
+475	17915364 1776 88334 465047 311.690445706486 3493.731680647376 39 -6.9925624972948 -0.62362863541297 -124.48103622977 597.10515080181
+476	17917140 4216 88334 465047 311.690445706486 3493.731680647376 130 0 0.1 1.43 0.13026
+477	17921356 786 88334 465047 311.690445706486 3493.731680647376 26 0 1 13 13
+478	17922142 1572 88334 465047 311.690445706486 3493.731680647376 52 0 2 52 78
+479	17923714 419 88334 465009 311.690445706486 3493.727680647376 13 113 113 1469 165997
+480	17924133 484 88334 465009 311.690445706486 3493.727680647376 13 0.000128 0.002048 0.016064 2.3867392e-05
+
