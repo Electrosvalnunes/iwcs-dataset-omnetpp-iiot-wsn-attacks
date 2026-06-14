@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it using the metadata below."
+title: "IWCS-Dataset: Simulation Dataset for Cyberattack Analysis in IIoT Wireless Sensor Networks"
+type: dataset
+authors:
+
+* family-names: "Lo Nunes"
+  given-names: "Osvaldo Sebastião"
+  year: 2026
+  date-released: 2026-06-13
+  version: "1.0.0"
+  doi: "10.5281/zenodo.20602871"
+  url: "https://zenodo.org/records/20602871"
+  repository-code: "https://github.com/osvalnunes/IWCS-Dataset"
+  abstract: "IWCS-Dataset is a simulation-based dataset for cyberattack analysis in Industrial Internet of Things Wireless Sensor Networks. The dataset was generated using OMNeT++/INET with IEEE 802.15.4, RPL, and UDP traffic, considering multiple grid-based network topologies and cyberattack scenarios, including Normal, Flooding, Blackhole, Wormhole, and Manipulated Backoff."
+  keywords:
+* "Industrial Internet of Things"
+* "IIoT"
+* "Wireless Sensor Networks"
+* "WSN"
+* "Cyberattack Detection"
+* "OMNeT++"
+* "INET"
+* "RPL"
+* "IEEE 802.15.4"
+* "Dataset"
+  license: "CC-BY-4.0"
