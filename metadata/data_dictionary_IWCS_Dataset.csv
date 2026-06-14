@@ -1,0 +1,17 @@
+column,type,unit,description
+RUN_ID,integer,--,Unique identifier for the record.
+"Topology,categorical,--,""Simulated topology: Grid_36, Grid_49, Grid_64, or Grid_100."""
+"Attack_Type,categorical,--,""Scenario class: Normal, Flooding, Blackhole, Wormhole, or Backoff_Manipulado."""
+Avg_RSSI_dBm,float,dBm,Average received signal strength intensity.
+DIO_Count_Window,integer,count,Total DIO messages observed in the aggregation window.
+DIS_Count_Window,integer,count,Total DIS messages observed in the aggregation window.
+Rank_Changes_Window,integer,count,Total RPL rank changes observed in the aggregation window.
+PDR_percent,float,%,Packet delivery ratio.
+Avg_Delay_ms,float,ms,Average end-to-end delay.
+Throughput_kbps,float,kbps,Average throughput.
+Energy_Consumed_J,float,J,Average energy consumed.
+Normal,binary,0/1,One-hot indicator for the Normal class.
+Flooding,binary,0/1,One-hot indicator for the Flooding class.
+Blackhole,binary,0/1,One-hot indicator for the Blackhole class.
+Wormhole,binary,0/1,One-hot indicator for the Wormhole class.
+Backoff_Manipulado,binary,0/1,One-hot indicator for the Backoff Manipulado class.

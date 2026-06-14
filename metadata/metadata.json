@@ -1,0 +1,11 @@
+{
+  "title": "IWCS-Dataset: IIoT Wireless Sensor Network Cyberattack Simulation Dataset",
+  "version": "1.0",
+  "records": 20331,
+  "attributes": 16,
+  "simulator": "OMNeT++ 5.7.1",
+  "framework": "INET 4.2.1",
+  "rpl_model": "Based on/adapted from ComNetsHH/omnetpp-rpl",
+  "license": "CC BY 4.0 recommended",
+  "doi": "TO_BE_ASSIGNED"
+}
