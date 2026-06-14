@@ -102,12 +102,14 @@ IWCS-Dataset/
 │   └── dataset_omnetpp_cleaned_2.csv
 │
 ├── raw_samples/
-│   └── representative OMNeT++ .sca, .vec, and .vci files
+│   └── representative OMNeT++_36_and_100_Normal_and_Blackhole .sca, .vec, and .vci files
 │
 ├── metadata/
 │   └── raw_files_manifest.csv
 │
 ├── scripts/
+│   ├── representative_36_and_100_omnetpp_RPL_MP2P.ini
+│   ├── representative_36_and_100_RplNetwork_RPL_MP2P.ned
 │   ├── parse_omnet.py
 │   ├── clean_dataset.py
 │   └── validate_dataset.py
