@@ -229,9 +229,12 @@ If you use this dataset in your research, please cite it as follows:
 
 ## License
 
-This dataset is distributed under the license specified in the Zenodo record and in the repository `LICENSE` file.
+This dataset is distributed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
-Please refer to the Zenodo record for the official license information.
+You are free to share and adapt the dataset for any purpose, provided that appropriate credit is given to the original author and source.
+
+See the `LICENSE` file and the Zenodo record for more details.
+
 
 ---
 
