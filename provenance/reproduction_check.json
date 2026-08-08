@@ -1,0 +1,21 @@
+{
+  "source_file": "dataset_omnetpp_P.csv",
+  "source_sha256": "4066b7f8361bf1933ddd6baaa44e9000eae35b5e82a1de92cdb7519b927b73b0",
+  "source_rows": 22180,
+  "source_columns": 16,
+  "published_file": "dataset_omnetpp_cleaned_2.csv",
+  "published_sha256": "523a291aea10a6bd29a5806d39494e288435860d6933296c729e8591fb08d73c",
+  "published_rows": 20331,
+  "published_columns": 16,
+  "cleaner_file": "clean_dataset_final.py",
+  "cleaner_sha256": "23bfc0795df1b2ea93d5e8772ba4a33cc7589d6937f8237845cd1a8fff20b424",
+  "reconstructed_rows": 20331,
+  "semantic_dataframe_equality": true,
+  "different_cells_after_parsing": 0,
+  "input_rows_removed": 1849,
+  "run_id_range": [1, 22000],
+  "missing_run_ids_total": 1669,
+  "missing_run_ids_absent_from_source": 556,
+  "missing_run_ids_removed_by_quality_filters": 1113,
+  "note": "Byte-level hashes of reserialized CSV files can differ because of float formatting; parsed tables are exactly equal in all cells."
+}
