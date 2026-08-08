@@ -67,3 +67,4 @@ class ObjectiveFunction : public cObject
 } // namespace inet
 
 #endif
+
