@@ -19,40 +19,35 @@ The **IWCS-Dataset** is a simulation-based dataset for cyberattack analysis in I
 
 The revision distinguishes two evidence levels:
 
-1. **Exact final-curation reproducibility.** The recovered pre-curation table contains **22,180 rows**. Re-executing the recovered final-curation procedure removes **1,849 source rows** and reproduces the released **20,331-row** table exactly at the parsed value level.
-2. **Representative raw-file traceability.** The complete historical OMNeT++ raw corpus was not retained. The revision package provides representative raw evidence covering all **20 topology-scenario combinations** rather than claiming row-by-row regeneration of every released record from historical `.sca/.vec/.vci` files.
+1. **Exact final-curation reconstruction.** The recovered pre-curation table contains **22,180 rows**. Re-executing the recovered final-curation procedure removes **1,849 source rows** and reproduces the released **20,331-row** table exactly at the parsed value level. The branch provides the cleaning script, machine-readable stage counts, integrity hashes, and a detailed reconstruction report. The pre-curation CSV itself is not stored in GitHub in this branch because of repository-transfer constraints and therefore must be supplied separately to independently rerun `verify_v1_reproduction.py`.
+2. **Representative raw-file traceability.** The complete historical OMNeT++ raw corpus was not retained. Existing repository raw samples remain available for structural inspection. A separate audit also covered one run-0 `.sca` file for each of the 20 topology-scenario combinations; these audit results are documented as representative evidence and are not presented as row-by-row regeneration of V1.
 
-The audited raw package contains one representative `.sca` execution (`run 0`) for every topology-scenario combination. Selected `.vec` and `.vci` examples may also be retained where storage size is practical.
-
-## Repository layout after revision update
+## Repository structure
 
 ```text
 IWCS-Dataset/
 ├── dataset/
 │   └── dataset_omnetpp_cleaned_2.csv
 ├── provenance/
-│   ├── dataset_omnetpp_P.csv
+│   ├── PROVENANCE_RECONSTRUCTION_REPORT.md
 │   ├── reproduction_check.json
-│   ├── cleaning_stage_summary.csv
-│   ├── excluded_source_rows_ledger.csv
-│   ├── missing_run_ids_ledger.csv
-│   └── PROVENANCE_RECONSTRUCTION_REPORT.md
+│   └── cleaning_stage_summary.csv
 ├── metadata/
 │   ├── data_dictionary_IWCS_Dataset.csv
-│   ├── RELATORIO_AUDITORIA_INTEGRAL_V1.md
+│   ├── V1_FULL_STRUCTURAL_AUDIT.md
 │   ├── descriptive_statistics.csv
 │   ├── topology_attack_distribution.csv
-│   └── raw_files_manifest_audited_run0.csv
+│   └── raw_files_manifest.csv
 ├── raw-samples/
-│   └── audited-run0/
+│   └── existing representative OMNeT++ `.sca`, `.vec`, and `.vci` samples
 ├── scripts/
-│   ├── parse_omnet_legacy.py
 │   ├── clean_dataset_final.py
 │   ├── validate_dataset_integral.py
 │   ├── verify_v1_reproduction.py
-│   └── benchmark_baselines.py
+│   ├── benchmark_baselines.py
+│   └── generate_figures.py
 ├── simulation/
-│   └── audited/
+│   └── historical simulation/configuration materials already released
 ├── CITATION.cff
 ├── LICENSE
 └── README.md
@@ -74,7 +69,11 @@ The revision explicitly documents the following historical limitations:
 - fixed/calibrated attacker placement and topology-specific configuration choices;
 - bounded attack coverage and no complete physical industrial-testbed validation.
 
-For machine-learning reuse, avoid using the one-hot class columns as predictors and prefer topology-aware validation when evaluating generalization.
+For machine-learning reuse, avoid using the one-hot class columns as predictors and prefer topology-aware validation when evaluating generalization. Near-perfect within-dataset benchmark performance should be interpreted as evidence of strong separability within this simulation design, not as evidence of universal deployment performance.
+
+## Historical parser note
+
+The original parser remains under `simulation/parse_omnet.py` for provenance. It is a **legacy artifact** and contains behaviors documented in the revision audit, including filename-based class assignment and the historical PDR cap. The newer scripts under `scripts/` are audit/reproducibility utilities and should not be interpreted as evidence that every V1 row can be regenerated from the incomplete retained raw corpus.
 
 ## Citation
 
