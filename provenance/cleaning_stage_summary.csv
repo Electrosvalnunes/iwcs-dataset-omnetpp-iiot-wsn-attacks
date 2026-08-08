@@ -1,0 +1,8 @@
+Stage,Description,Before,Removed,After
+01_empty_rows,Entire row empty,22180,278,21902
+02_exact_duplicates,Exact duplicate row,21902,180,21722
+03_run_id,"Missing or repeated RUN_ID; first valid occurrence retained",21722,278,21444
+04_remaining_nulls,Missing value after numeric conversion,21444,279,21165
+05_invalid_categories,Invalid topology or attack category,21165,278,20887
+06_physical_ranges,Value outside declared plausibility range,20887,278,20609
+07_one_hot,One-hot sum different from 1,20609,278,20331
