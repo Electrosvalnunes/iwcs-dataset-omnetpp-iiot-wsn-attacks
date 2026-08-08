@@ -36,8 +36,7 @@ IWCS-Dataset/
 │   ├── data_dictionary_IWCS_Dataset.csv
 │   ├── V1_FULL_STRUCTURAL_AUDIT.md
 │   ├── descriptive_statistics.csv
-│   ├── topology_attack_distribution.csv
-│   └── raw_files_manifest.csv
+│   └── topology_attack_distribution.csv
 ├── raw-samples/
 │   └── existing representative OMNeT++ `.sca`, `.vec`, and `.vci` samples
 ├── scripts/
