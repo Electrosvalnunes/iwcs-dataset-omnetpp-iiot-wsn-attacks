@@ -1,218 +1,82 @@
-# IWCS-Dataset: Simulation Dataset for Cyberattack Analysis in IIoT Wireless Sensor Networks
+# IWCS-Dataset
 
-**IWCS-Dataset** is a simulation-based dataset for cyberattack analysis in **Industrial Internet of Things (IIoT)** Wireless Sensor Networks. The dataset was generated using **OMNeT++/INET** simulations with **IEEE 802.15.4**, **RPL**, and **UDP traffic**, considering multiple network topologies and cyberattack scenarios.
+The **IWCS-Dataset** is a simulation-based dataset for cyberattack analysis in Industrial Internet of Things (IIoT) wireless sensor networks. The released V1 contains **20,331 curated records and 16 attributes** derived from an OMNeT++/INET campaign with IEEE 802.15.4, IPv6/RPL, UDP traffic, four grid topology labels, and five controlled operating conditions.
 
-The dataset supports research on network performance analysis, anomaly detection, cyberattack classification, and reproducibility in IIoT/WSN environments.
+> **Scope note.** The audited recovered configurations use RPL/IPv6 over IEEE 802.15.4. An explicit 6LoWPAN adaptation layer was **not** present in the recovered stack, so the revised documentation does not claim that such a layer was modeled in the audited configuration package.
 
----
+## Main dataset
 
-## Dataset Overview
+`dataset/dataset_omnetpp_cleaned_2.csv`
 
-| Item            | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| Dataset name    | IWCS-Dataset                                               |
-| Domain          | Industrial IoT / Wireless Sensor Networks                  |
-| Simulation tool | OMNeT++ / INET                                             |
-| Network stack   | IEEE 802.15.4, RPL, UDP                                    |
-| Main file       | `dataset/dataset_omnetpp_cleaned_2.csv`                    |
-| Records         | 20,331                                                     |
-| Attributes      | 16                                                         |
-| Topologies      | Grid_36, Grid_49, Grid_64, Grid_100                        |
-| Scenarios       | Normal, Flooding, Blackhole, Wormhole, Manipulated Backoff |
+- Records: **20,331**
+- Attributes: **16**
+- Topology labels: `Grid_36`, `Grid_49`, `Grid_64`, `Grid_100`
+- Conditions: `Normal`, `Flooding`, `Blackhole`, `Wormhole`, `Backoff_Manipulado`
+- Zenodo DOI: **10.5281/zenodo.20602871**
+- Dataset license: **CC BY 4.0**
 
----
+## Provenance and reproducibility
 
-## Main Dataset File
+The revision distinguishes two evidence levels:
 
-The curated dataset is available at:
+1. **Exact final-curation reproducibility.** The recovered pre-curation table contains **22,180 rows**. Re-executing the recovered final-curation procedure removes **1,849 source rows** and reproduces the released **20,331-row** table exactly at the parsed value level.
+2. **Representative raw-file traceability.** The complete historical OMNeT++ raw corpus was not retained. The revision package provides representative raw evidence covering all **20 topology-scenario combinations** rather than claiming row-by-row regeneration of every released record from historical `.sca/.vec/.vci` files.
 
-```text
-dataset/dataset_omnetpp_cleaned_2.csv
-```
+The audited raw package contains one representative `.sca` execution (`run 0`) for every topology-scenario combination. Selected `.vec` and `.vci` examples may also be retained where storage size is practical.
 
-This file contains **20,331 records** and **16 attributes**, including the evaluated network topology, attack scenario, and performance metrics extracted from the OMNeT++ simulation outputs.
-
-The processed dataset includes all evaluated topologies and scenarios used in the associated manuscript.
-
----
-
-## Evaluated Scenarios
-
-The dataset includes five network operation and cyberattack scenarios:
-
-* `Normal`
-* `Flooding`
-* `Blackhole`
-* `Wormhole`
-* `Backoff_Manipulado`
-
-The label `Backoff_Manipulado` corresponds to the **Manipulated Backoff** scenario, in which MAC-layer contention parameters were modified to represent abnormal channel access behavior.
-
----
-
-## Evaluated Topologies
-
-The simulations were conducted using grid-based WSN/IIoT topologies with different network sizes:
-
-* `Grid_36`
-* `Grid_49`
-* `Grid_64`
-* `Grid_100`
-
-These topologies allow the dataset to support analysis of cyberattack behavior under different network scales.
-
----
-
-## Main Metrics
-
-The dataset includes network performance metrics commonly used to analyze the behavior of WSN/IIoT systems under normal and malicious conditions, such as:
-
-* Packet Delivery Ratio;
-* Average end-to-end delay;
-* Throughput;
-* Energy consumption;
-* RPL control and routing-related indicators.
-
-These attributes can be used for statistical analysis, anomaly detection, machine learning classification, and topology-aware cyberattack evaluation.
-
----
-
-## Simulation Environment
-
-The dataset was generated using the following simulation environment:
-
-* OMNeT++ 5.7.x
-* INET 4.2.x
-* RPL model based on/adapted from: https://github.com/ComNetsHH/omnetpp-rpl
-* IEEE 802.15.4 MAC/PHY
-* UDP application traffic
-
-The simulations follow a WSN/IIoT communication model in which sensor nodes transmit traffic toward a sink node under different network conditions and attack scenarios.
-
----
-
-## Repository Structure
-
-The repository is organized as follows:
+## Repository layout after revision update
 
 ```text
 IWCS-Dataset/
-│
 ├── dataset/
 │   └── dataset_omnetpp_cleaned_2.csv
-│
-├── raw_samples/
-│   └── representative OMNeT++_36_and_100_Normal_and_Blackhole .sca, .vec, and .vci files
-│
+├── provenance/
+│   ├── dataset_omnetpp_P.csv
+│   ├── reproduction_check.json
+│   ├── cleaning_stage_summary.csv
+│   ├── excluded_source_rows_ledger.csv
+│   ├── missing_run_ids_ledger.csv
+│   └── PROVENANCE_RECONSTRUCTION_REPORT.md
 ├── metadata/
-│   └── raw_files_manifest.csv
-│
+│   ├── data_dictionary_IWCS_Dataset.csv
+│   ├── RELATORIO_AUDITORIA_INTEGRAL_V1.md
+│   ├── descriptive_statistics.csv
+│   ├── topology_attack_distribution.csv
+│   └── raw_files_manifest_audited_run0.csv
+├── raw-samples/
+│   └── audited-run0/
 ├── scripts/
-│   ├── representative_36_and_100_omnetpp_RPL_MP2P.ini
-│   ├── representative_36_and_100_RplNetwork_RPL_MP2P.ned
-│   ├── parse_omnet.py
-│   ├── clean_dataset.py
-│   └── validate_dataset.py
-│
-├── README.md
+│   ├── parse_omnet_legacy.py
+│   ├── clean_dataset_final.py
+│   ├── validate_dataset_integral.py
+│   ├── verify_v1_reproduction.py
+│   └── benchmark_baselines.py
+├── simulation/
+│   └── audited/
 ├── CITATION.cff
-└── LICENSE
+├── LICENSE
+└── README.md
 ```
 
-Depending on the repository version, some scripts or auxiliary files may be updated to improve reproducibility and documentation.
+## Labeling
 
----
+IWCS does **not** use human annotation. `Attack_Type` is a deterministic label derived from the controlled simulation condition. The revision audit checks consistency between `Attack_Type` and the five one-hot class columns.
 
-## Representative Raw Simulation Samples
+## Important V1 limitations
 
-Due to the large size of the complete OMNeT++ raw simulation outputs, this repository provides **representative raw samples** instead of storing all raw output files from all simulation repetitions.
+The revision explicitly documents the following historical limitations:
 
-The representative raw samples include OMNeT++:
+- filename-based scenario classification in the legacy parser;
+- a historical defensive PDR cap at 100%;
+- two numerical-precision regimes already present in the pre-curation table;
+- deterministic patterns in some historical delay/energy features;
+- run-level aggregation that discards much of the temporal richness of vector outputs;
+- fixed/calibrated attacker placement and topology-specific configuration choices;
+- bounded attack coverage and no complete physical industrial-testbed validation.
 
-* `.sca` files;
-* `.vec` files;
-* `.vci` files.
-
-Representative samples are provided for selected executions, including:
-
-* run `0`;
-* run `999`.
-
-These samples cover the following scenarios:
-
-* Normal;
-* Flooding;
-* Blackhole;
-* Wormhole;
-* Manipulated Backoff.
-
-They also cover the evaluated topology sizes:
-
-* 36 nodes;
-* 49 nodes;
-* 64 nodes;
-* 100 nodes.
-
-The representative raw files allow users to inspect the structure of the OMNeT++ outputs and understand how the curated CSV dataset was derived.
-
----
-
-## Reproducibility Note
-
-The complete raw simulation outputs are large because the experiments involve multiple scenarios, four network topologies, and up to 1000 repetitions per scenario/topology configuration.
-
-For reproducibility, this repository provides:
-
-* the final curated CSV dataset;
-* representative OMNeT++ raw simulation samples;
-* a raw file manifest;
-* metadata describing the dataset structure;
-* scripts used for extraction, cleaning, and validation, when available.
-
-The file `raw_files_manifest.csv` documents the available raw samples and may include information such as file name, topology, scenario, run identifier, file type, size, path, and checksum.
-
----
-
-## Basic Usage
-
-The dataset can be loaded using Python and pandas:
-
-```python
-import pandas as pd
-
-df = pd.read_csv("dataset/dataset_omnetpp_cleaned_2.csv")
-
-print(df.shape)
-print(df.head())
-print(df["Attack_Type"].value_counts())
-print(df["Topology"].value_counts())
-```
-
-This allows users to inspect the number of records, attributes, attack classes, and evaluated topologies.
-
----
-
-## Related Repository and Dataset Record
-
-The processed dataset and reproducibility materials are associated with the Zenodo record:
-
-```text
-https://zenodo.org/records/20602871
-```
-
-DOI:
-
-```text
-10.5281/zenodo.20602871
-```
-
-If a newer Zenodo version is released, users should cite the most recent DOI available in the Zenodo record.
-
----
+For machine-learning reuse, avoid using the one-hot class columns as predictors and prefer topology-aware validation when evaluating generalization.
 
 ## Citation
-
-If you use this dataset in your research, please cite it as follows:
 
 ```bibtex
 @dataset{lo_nunes_iwcs_dataset_2026,
@@ -225,27 +89,12 @@ If you use this dataset in your research, please cite it as follows:
 }
 ```
 
----
+See also `CITATION.cff`.
 
 ## License
 
-This dataset is distributed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
-
-You are free to share and adapt the dataset for any purpose, provided that appropriate credit is given to the original author and source.
-
-See the `LICENSE` file and the Zenodo record for more details.
-
-
----
-
-## Acknowledgment
-
-This dataset was developed as part of the master's research of **Osvaldo Lo Nunes Sebastião** at the **Escola Politécnica da Universidade de São Paulo**.
-
-The dataset was created to support reproducible research on cyberattack analysis, performance evaluation, and intelligent detection methods in IIoT Wireless Sensor Networks.
-
----
+The released dataset is distributed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license. Source-code files derived from or adapted from third-party software retain the license obligations applicable to those source files; the dataset license does not override software licenses.
 
 ## Contact
 
-For questions, suggestions, or collaboration related to this dataset, please use the GitHub repository issue tracker or contact the dataset author through the information provided in the Zenodo record.
+For questions or reproducibility issues, use the GitHub issue tracker or the contact information in the Zenodo record.
