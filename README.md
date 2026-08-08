@@ -25,7 +25,7 @@ The revision distinguishes two evidence levels:
 1. **Exact final-curation reconstruction.** The recovered pre-curation table contains **22,180 rows**. Re-executing the recovered final-curation procedure removes **1,849 source rows** and reproduces the released **20,331-row** table exactly at parsed value level, with **zero different cells**. GitHub provides the cleaner, validation/reproduction scripts, stage counts, integrity metadata, and reconstruction report.
 2. **Representative raw-file traceability.** The complete historical OMNeT++ raw corpus was not retained. Existing historical raw samples remain preserved under `raw-samples/`. A separate audit covered one run-0 `.sca` execution for each of the **20 topology-scenario combinations**; its file-level manifest and metric comparison are published under `metadata/`. These representative files are not presented as row-by-row regeneration of V1.
 
-The complete curation bundle and the complete 20-file run-0 audit archive have been prepared with SHA-256 checksums for archival deposit. Because the connected GitHub contents interface truncates large binary transfers, these two large archives are documented in GitHub and will be placed in the archival dataset record rather than uploaded here in incomplete form. See `REPRODUCIBILITY.md` and `metadata/reproducibility_archives_manifest.csv`.
+Three complete audit archives were prepared and assigned SHA-256 checksums. The connected GitHub contents interface was verified to truncate larger binary transfers, so GitHub publishes their manifests, hashes, scripts, audit notes, and smaller source components; the intact archives are reserved for the archival dataset deposit. This avoids publishing corrupted or incomplete files. See `REPRODUCIBILITY.md` and `metadata/reproducibility_archives_manifest.csv`.
 
 ## Repository structure
 
@@ -59,8 +59,11 @@ IWCS-Dataset/
 ├── simulation/
 │   ├── historical simulation/configuration materials
 │   └── audited/
-│       └── rpl_attack_source_audited.zip
+│       ├── README.md
+│       ├── ObjectiveFunction.cc
+│       └── ObjectiveFunction.h
 ├── REPRODUCIBILITY.md
+├── SHA256SUMS.txt
 ├── CITATION.cff
 ├── LICENSE
 └── README.md
@@ -84,7 +87,7 @@ The prepared 20-file archive is `audited-run0-sca.zip` (SHA-256 `8d7095a4d1158eb
 
 ## Audited attack-source snapshot
 
-`simulation/audited/rpl_attack_source_audited.zip` contains the recovered `Rpl.cc`, `Rpl.h`, `ObjectiveFunction.cc`, and `ObjectiveFunction.h` used to inspect representative attack semantics. Its SHA-256 is `d0cf96b11b3e913e5bc4ac640b13cb61ee998f609c2091dd5563694026e1395e`.
+The recovered source audit covers `Rpl.cc`, `Rpl.h`, `ObjectiveFunction.cc`, and `ObjectiveFunction.h`. GitHub publishes the two smaller ObjectiveFunction files and `simulation/audited/README.md`, which records the SHA-256 hashes and source-level findings. The complete prepared archive is `rpl_attack_source_audited.zip` (SHA-256 `d0cf96b11b3e913e5bc4ac640b13cb61ee998f609c2091dd5563694026e1395e`) and is reserved for the archival deposit because a direct binary upload through the connected interface was verified to truncate it.
 
 This recovered source snapshot supports code-level inspection but is **not** presented as proof that every V1 record can be regenerated from the incomplete historical raw corpus.
 
