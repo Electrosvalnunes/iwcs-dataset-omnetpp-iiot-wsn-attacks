@@ -16,49 +16,31 @@ The recovered pre-curation table contains 22,180 rows. The recovered final clean
 
 The GitHub repository contains the curation script, stage counts, integrity check, and reconstruction report under `scripts/` and `provenance/`.
 
-The complete curation bundle has been prepared as:
+The complete curation bundle has been prepared as `IWCS_V1_CURATION_REPRODUCTION_BUNDLE.zip` with SHA-256 `b10ea5824727e732f76a316741c423b7561963fb047931a52bade3ec4fb7c951`.
 
-`IWCS_V1_CURATION_REPRODUCTION_BUNDLE.zip`
-
-SHA-256:
-
-`b10ea5824727e732f76a316741c423b7561963fb047931a52bade3ec4fb7c951`
-
-It contains the recovered 22,180-row pre-curation table, the row-level exclusion ledger, the missing-RUN_ID ledger, stage counts, integrity metadata, cleaner, and reproduction verifier. The large binary bundle is reserved for the archival dataset deposit rather than being reconstructed from a truncated GitHub connector upload.
+It contains the recovered 22,180-row pre-curation table, the row-level exclusion ledger, the missing-RUN_ID ledger, stage counts, integrity metadata, cleaner, and reproduction verifier. The complete binary bundle is reserved for the archival dataset deposit because the connected GitHub contents interface was verified to truncate large binary transfers.
 
 ## 3. Representative raw-file traceability
 
 The complete historical OMNeT++ raw corpus was not retained. Therefore, this repository does not claim row-by-row raw regeneration of all 20,331 released records.
 
-A separate audit used one run-0 `.sca` execution for every topology-scenario combination (4 topologies × 5 conditions = 20 combinations). File names, sizes, and SHA-256 hashes are published in:
+A separate audit used one run-0 `.sca` execution for every topology-scenario combination (4 topologies × 5 conditions = 20 combinations). File names, sizes, and SHA-256 hashes are published in `metadata/raw_files_manifest_audited_run0.csv`.
 
-`metadata/raw_files_manifest_audited_run0.csv`
+The prepared archive is `audited-run0-sca.zip` with SHA-256 `8d7095a4d1158ebabb244af4a7317eab83395205212d2ca5f51aa394be337506`.
 
-The prepared archive is:
-
-`audited-run0-sca.zip`
-
-SHA-256:
-
-`8d7095a4d1158ebabb244af4a7317eab83395205212d2ca5f51aa394be337506`
-
-This archive is representative audit evidence, not a replacement for the incomplete historical raw corpus.
+This archive is representative audit evidence, not a replacement for the incomplete historical raw corpus. Its complete binary copy is reserved for the archival dataset deposit.
 
 ## 4. Historical raw samples are preserved
 
 Files already stored under `raw-samples/` are retained as historical evidence. They are not deleted or overwritten by the major-revision audit. New audit evidence is documented separately so that legacy samples and revision-stage evidence cannot be confused.
 
-## 5. Audited RPL source bundle
+## 5. Audited recovered RPL source
 
-The recovered RPL/objective-function source files used to inspect attack semantics are stored as:
+The recovered source audit covers `Rpl.cc`, `Rpl.h`, `ObjectiveFunction.cc`, and `ObjectiveFunction.h`. The complete prepared archive is `rpl_attack_source_audited.zip` with SHA-256 `d0cf96b11b3e913e5bc4ac640b13cb61ee998f609c2091dd5563694026e1395e`.
 
-`simulation/audited/rpl_attack_source_audited.zip`
+GitHub publishes the two smaller ObjectiveFunction files and `simulation/audited/README.md`, which records SHA-256 hashes for all four source files and the source-level findings. The complete ZIP, including the larger `Rpl.cc` and `Rpl.h`, is reserved for the archival deposit because direct transfer through the connected GitHub interface was verified to truncate it.
 
-SHA-256:
-
-`d0cf96b11b3e913e5bc4ac640b13cb61ee998f609c2091dd5563694026e1395e`
-
-The bundle contains `Rpl.cc`, `Rpl.h`, `ObjectiveFunction.cc`, and `ObjectiveFunction.h`. It supports inspection of the recovered representative implementation; it is not presented as proof that every V1 row can be regenerated from retained source and raw files.
+This recovered source snapshot supports inspection of representative attack semantics; it is not presented as proof that every V1 row can be regenerated from retained source and raw files.
 
 ## 6. Legacy parser
 
@@ -70,4 +52,4 @@ Diagnostic results are under `metadata/`. Predictor sets exclude `Attack_Type` a
 
 ## 8. Integrity manifests
 
-Use `metadata/reproducibility_archives_manifest.csv` for archive-level SHA-256 checks and `metadata/raw_files_manifest_audited_run0.csv` for file-level checks of the 20 representative raw executions.
+Use `metadata/reproducibility_archives_manifest.csv` for archive-level SHA-256 checks, `metadata/raw_files_manifest_audited_run0.csv` for file-level checks of the 20 representative raw executions, and `SHA256SUMS.txt` for the principal released/prepared artifacts.
