@@ -1,0 +1,27 @@
+Protocol,Feature_Set,Model,Held_Out,Accuracy,Macro_F1
+Random stratified 80/20,8 features,Decision Tree,-,1.0,1.0
+Random stratified 80/20,8 features,Random Forest,-,1.0,1.0
+Random stratified 80/20,8 features,Logistic Regression,-,1.0,1.0
+Leave-One-Topology-Out,8 features,Random Forest,Grid_36,0.9996068409671712,0.9996059017666472
+Leave-One-Topology-Out,8 features,Random Forest,Grid_49,1.0,1.0
+Leave-One-Topology-Out,8 features,Random Forest,Grid_64,1.0,1.0
+Leave-One-Topology-Out,8 features,Random Forest,Grid_100,1.0,1.0
+LOTO mean,8 features,Random Forest,4 topologies,0.9999017102417929,0.9999014754416617
+Leave-One-Topology-Out,8 features,Logistic Regression,Grid_36,0.9990171024179281,0.999014737919073
+Leave-One-Topology-Out,8 features,Logistic Regression,Grid_49,1.0,1.0
+Leave-One-Topology-Out,8 features,Logistic Regression,Grid_64,1.0,1.0
+Leave-One-Topology-Out,8 features,Logistic Regression,Grid_100,1.0,1.0
+LOTO mean,8 features,Logistic Regression,4 topologies,0.999754275604482,0.9997536844797683
+Random stratified 80/20,6-feature ablation,Decision Tree,-,0.9975411851487583,0.9975444975037986
+Random stratified 80/20,6-feature ablation,Random Forest,-,0.9990164740595033,0.9990178019625873
+Random stratified 80/20,6-feature ablation,Logistic Regression,-,0.998524711089255,0.9985266985022792
+Leave-One-Topology-Out,6-feature ablation,Random Forest,Grid_36,0.9852565362689207,0.9851969282532302
+Leave-One-Topology-Out,6-feature ablation,Random Forest,Grid_49,0.9968391939944686,0.9968455644150438
+Leave-One-Topology-Out,6-feature ablation,Random Forest,Grid_64,0.9986160537761961,0.9986082725469556
+Leave-One-Topology-Out,6-feature ablation,Random Forest,Grid_100,0.9988290398126464,0.9988410614556402
+LOTO mean,6-feature ablation,Random Forest,4 topologies,0.994885205963058,0.9948729566677175
+Leave-One-Topology-Out,6-feature ablation,Logistic Regression,Grid_36,0.9927265578926676,0.9927600306253449
+Leave-One-Topology-Out,6-feature ablation,Logistic Regression,Grid_49,0.9964440932437771,0.9964509151123264
+Leave-One-Topology-Out,6-feature ablation,Logistic Regression,Grid_64,0.9976275207591934,0.9976142763976996
+Leave-One-Topology-Out,6-feature ablation,Logistic Regression,Grid_100,0.9968774395003903,0.9969102490311194
+LOTO mean,6-feature ablation,Logistic Regression,4 topologies,0.9959189028490072,0.9959338677916226
