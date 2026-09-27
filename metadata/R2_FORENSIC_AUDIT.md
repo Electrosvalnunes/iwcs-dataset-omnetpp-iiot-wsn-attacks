@@ -45,9 +45,13 @@ In the RUN_ID <= 20,000 regime, the released `Avg_Delay_ms` values obey exact to
 - Blackhole: `0.4 * N` ms
 - Wormhole: `0.24 * N` ms
 
-Manipulated Backoff instead shows a separate high-delay, topology-dependent pattern with appreciable within-cell variation.
+Manipulated Backoff instead shows a separate high-delay, topology-dependent pattern with appreciable within-cell variation. No analogous exact closed-form construction was identified for Manipulated Backoff delay or for `Throughput_kbps`; none is claimed.
 
 The representative OMNeT++ raw delay signal is `sink[0].app[0].endToEndDelay` and is populated only by successfully delivered legitimate application-0 packets. Its sample count matches the legitimate receive count. Lost packets are not included, and additional Flooding/Backoff attack traffic is recorded separately. Representative raw delay values do not reproduce the deterministic released-field construction; the released delay column is therefore treated as legacy-derived.
+
+## Grid 100 reconciliation
+
+Grid 100 differs materially from the smaller legacy configurations: it uses a 6 s legitimate interval instead of 55 s, zero MAC retries, and `sigma=60` dB. These settings would materially alter a physical simulator response. However, the released low-ID Delay/Energy columns follow the deterministic tabular constructions documented above and are not reproduced by representative raw extraction. Those released columns therefore cannot be used to infer the physical response to the Grid 100 radio/traffic configuration. PDR and throughput differences are reported descriptively and are not attributed to any single Grid 100 parameter.
 
 ## PDR recomputation
 
@@ -55,11 +59,18 @@ For the 20 representative topology-condition executions, PDR was independently r
 
 `100 * legitimate packets received at sink / legitimate packets transmitted by sensors`.
 
+| Topology | Normal | Flooding | Blackhole | Wormhole | Backoff |
+|---|---:|---:|---:|---:|---:|
+| Grid 36 | 100.00 | 75.63 | 54.76 | 69.47 | 85.91 |
+| Grid 49 | 100.00 | 44.17 | 60.36 | 74.00 | 83.45 |
+| Grid 64 | 99.87 | 43.05 | 55.21 | 54.18 | 77.42 |
+| Grid 100 | 94.28 | 33.03 | 51.87 | 30.94 | 44.05 |
+
 No representative execution exceeded 100%; 0/20 required clipping, and two Normal representatives were exactly 100%. The mathematical PDR definition therefore does not include clipping. Any historical 100% cap is documented only as legacy parser behavior.
 
 ## Shadowing sigma
 
-The retained configuration files confirm `sigma=60` for Grid 64 and Grid 100. This is not a transcription error. It is documented as a historical stress/calibration setting, not as an empirically validated industrial shadowing standard deviation. Together with topology-specific MAC retry limits and the Grid 100 legitimate traffic rate, this prevents interpretation of the four topologies as a pure node-count scaling experiment.
+The retained configuration files confirm `sigma=60` for Grid 64 and Grid 100. This is not a transcription error. The retained materials provide **no empirical physical justification** for `sigma=60` dB. It is therefore preserved only as a historical stress/calibration setting, not as an empirically validated industrial shadowing standard deviation. Together with topology-specific MAC retry limits and the Grid 100 legitimate traffic rate, this prevents interpretation of the four topologies as a pure node-count scaling experiment.
 
 ## Wormhole semantics
 
@@ -78,6 +89,12 @@ With four approximately balanced topology labels, chance accuracy is about 25%; 
 
 A further attack-classification sensitivity check excluding Delay, Energy, and RSSI still gives mean LOTO accuracy 0.9864 for Random Forest and 0.9964 for Logistic Regression.
 
+## Full-campaign rerun scope
+
+A fully versioned rerun is scientifically valuable and is the preferred basis for a future regenerated release. It was **not** used to replace historical IWCS v1.1.0 in this revision. A new campaign could validate a corrected prospective raw-to-table pipeline, but it would not retroactively establish whether historical RUN_ID 20,001-22,000 arose from additional simulator executions, a second extraction pass, or another upstream table-generation step. Replacing the archived historical table with newly generated data would therefore create a new dataset version rather than make the historical V1 lineage row-complete.
+
+The R2 revision instead uses a forensic strategy: exact curation reproducibility, representative raw/configuration/source audits, direct PDR recomputation, public diagnostics, and explicit disclosure of unresolved historical provenance.
+
 ## Scope of the historical release
 
-The historical IWCS table remains useful as an auditable simulation-derived resource for controlled benchmarking, data-quality/shortcut analysis, topology-condition sensitivity, and preliminary IDS experiments. It should not be interpreted as a factory-calibrated physical dataset, a pure topology-size experiment, or a source of universal attack signatures.
+The historical IWCS table remains useful as an auditable simulation-derived resource for controlled benchmarking, data-quality/shortcut analysis, topology-condition sensitivity, and preliminary IDS experiments. Its most defensible comparative question is whether condition-specific operational signatures persist across the documented topology-condition regimes under topology-aware validation, precision-regime cross-checks, and feature ablation. It should not be interpreted as a factory-calibrated physical dataset, a pure topology-size experiment, or a source of universal attack signatures.
