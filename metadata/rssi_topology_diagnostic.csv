@@ -1,0 +1,3 @@
+Protocol,Model,Accuracy,Macro_F1
+RSSI-only topology classification,Logistic Regression,0.26161790017211706,0.17383031463781246
+RSSI-only topology classification,Random Forest depth=5,0.2640767150233587,0.24405518850871769
