@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below. Do not mix it with the deprecated version 1.1."
 type: dataset
-title: "IWCS-Dataset v2: Simulator-Traceable Run-Level Dataset of Normal Operation and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks"
+title: "IWCS v2: A Simulator-Traceable Run-Level Dataset of Normal Operation and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks"
 version: 2.0.0
 doi: 10.5281/zenodo.24224309
 date-released: 2026-11-15
@@ -15,10 +15,12 @@ authors:
   - given-names: Felipe
     family-names: Valencia de Almeida
     affiliation: "Escola Politécnica, Universidade de São Paulo"
+    orcid: "https://orcid.org/0000-0003-2031-6443"
   - given-names: Jorge
     family-names: Rady de Almeida
     name-suffix: Júnior
     affiliation: "Escola Politécnica, Universidade de São Paulo"
+    orcid: "https://orcid.org/0000-0003-3839-4570"
 abstract: >-
   Run-level table of 600 OMNeT++ 5.7.1 / INET 4.2.10 simulation runs of the Routing Protocol
   for Low-Power and Lossy Networks (RPL): four static grids (36, 49, 64 and 100 nodes), five

@@ -1,4 +1,4 @@
-# IWCS-Dataset v2: Simulator-Traceable Run-Level Dataset of Normal Operation and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks
+# IWCS v2: A Simulator-Traceable Run-Level Dataset of Normal Operation and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks
 
 IWCS-Dataset v2.0.0 is a run-level table of 600 OMNeT++ 5.7.1 / INET 4.2.10 simulation runs of
 the Routing Protocol for Low-Power and Lossy Networks (RPL). It covers:
@@ -138,9 +138,10 @@ into `campaign_v2/results/` and run the processing step. The result is byte-iden
 - **PDR window boundary:** `PDR_percent` counts packets sent and received after the warm-up and is
   not capped. One run (`Grid48_Normal` run 14) has a PDR of 100.033 %: one packet was sent at
   79.992 s and received at 80.013 s, so it counts as received but not as sent.
-- **Wormhole endpoints:** they also carry `maliciousRank`, so they drop transit traffic like a
-  blackhole. Lured honest parents and attackers can form two-node DAO loops, which RPL rejects
-  ("loop detected"); this is why `DAO_Received_Total` can exceed
+- **Wormhole endpoints:** the malicious (second) endpoint of each tunnel also drops transit
+  packets; the tunnels and their endpoints are listed in `campaign_v2/cells.csv`. Lured honest
+  parents and attackers can form two-node DAO loops, which RPL rejects ("loop detected"); this
+  is why `DAO_Received_Total` can exceed
   `DAO_Forwarded_Total + DAO_Dropped_Total`.
 - **Grid 100 settings:** Grid 100 uses a 6 s legitimate send interval (55 s in the other grids) and
   no MAC retries.
@@ -154,7 +155,7 @@ not evidence of physical deployment behaviour.
 @dataset{lo_nunes_sebastiao_iwcs_v2_2026,
   author    = {L{\'o} Nunes Sebasti{\~a}o, Osvaldo and Valencia de Almeida, Felipe and
                Rady de Almeida J{\'u}nior, Jorge},
-  title     = {{IWCS-Dataset v2: Simulator-Traceable Run-Level Dataset of Normal Operation
+  title     = {{IWCS v2: A Simulator-Traceable Run-Level Dataset of Normal Operation
                and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks}},
   year      = {2026},
   publisher = {Zenodo},
