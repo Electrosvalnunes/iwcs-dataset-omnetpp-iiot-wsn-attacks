@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below. Do not mix it with the deprecated version 1.1."
+type: dataset
+title: "IWCS-Dataset v2: Simulator-Traceable Run-Level Dataset of Normal Operation and Four Attack Conditions in Simulated Low-Power Wireless Sensor Networks"
+version: 2.0.0
+doi: 10.5281/zenodo.24224309
+date-released: 2026-11-15
+license: CC-BY-4.0
+repository-code: "https://github.com/Electrosvalnunes/iwcs-dataset-omnetpp-iiot-wsn-attacks"
+authors:
+  - given-names: Osvaldo
+    family-names: Ló Nunes Sebastião
+    affiliation: "Escola Politécnica, Universidade de São Paulo"
+    orcid: "https://orcid.org/0009-0006-1000-5042"
+  - given-names: Felipe
+    family-names: Valencia de Almeida
+    affiliation: "Escola Politécnica, Universidade de São Paulo"
+  - given-names: Jorge
+    family-names: Rady de Almeida
+    name-suffix: Júnior
+    affiliation: "Escola Politécnica, Universidade de São Paulo"
+abstract: >-
+  Run-level table of 600 OMNeT++ 5.7.1 / INET 4.2.10 simulation runs of the Routing Protocol
+  for Low-Power and Lossy Networks (RPL): four static grids (36, 49, 64 and 100 nodes), five
+  operating conditions (normal, flooding, blackhole, wormhole, manipulated medium-access backoff)
+  and 30 seeded repetitions per cell. Each row is traceable to a published, unmodified scalar
+  result file through its SHA-256. Supersedes the deprecated version 1.1, which must not be mixed
+  with this version.
+keywords:
+  - RPL
+  - wireless sensor networks
+  - Industrial Internet of Things
+  - OMNeT++
+  - INET
+  - blackhole
+  - wormhole
+  - flooding
+  - backoff manipulation
+  - intrusion detection
+  - reproducibility
+references:
+  - type: dataset
+    title: "IWCS-Dataset v1.1 (deprecated)"
+    version: 1.1.0
+    doi: 10.5281/zenodo.21853437
+    authors:
+      - given-names: Osvaldo
+        family-names: Ló Nunes Sebastião

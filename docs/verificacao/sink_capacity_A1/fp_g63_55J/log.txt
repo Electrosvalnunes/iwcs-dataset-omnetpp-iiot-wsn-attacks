@@ -1,0 +1,181 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2021 Andras Varga, OpenSim Ltd.
+Version: 5.7.1, build: 230913-ec6b029097, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Cmdenv...
+
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/simulations:  6
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/src:  4
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/../inet/src:  831
+
+Preparing for running configuration Grid63_Flooding_Host27, run #0...
+Assigned runID=Grid63_Flooding_Host27-0-20261114-04:26:14-163322
+Setting up network "RplNetworkGrid63"...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 1e-05s (0m 00s)  0% completed  (0% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 1736   present: 1736   in FES: 260
+** Event #64602624   t=1449.05100280688   Elapsed: 600.001s (10m 00s)  40% completed  (40% total)
+     Speed:     ev/sec=107671   simsec/sec=2.41508   ev/simsec=44582.7
+     Messages:  created: 93660953   present: 12848   in FES: 273
+** Event #125969920   t=2735.246963526436   Elapsed: 1200s (20m 00s)  75% completed  (75% total)
+     Speed:     ev/sec=102279   simsec/sec=2.14366   ev/simsec=47712.2
+     Messages:  created: 182608967   present: 12010   in FES: 232
+** Event #157887618   t=3600   Elapsed: 1495.83s (24m 55s)  100% completed  (100% total)
+     Speed:     ev/sec=107891   simsec/sec=2.75411   ev/simsec=39174.7
+     Messages:  created: 228877884   present: 12726   in FES: 192
+
+<!> Simulation time limit reached -- at t=3600s, event #157887618
+
+Calling finish() at end of Run #0...
+[INFO]	Radio signal arrival computation count = 70582932
+[INFO]	Transmission count = 1120364
+[INFO]	Signal send count = 70582932
+[INFO]	Reception computation count = 70582932
+[INFO]	Interference computation count = 212455240
+[INFO]	Reception decision computation count = 4455519
+[INFO]	Listening decision computation count = 137462536
+[INFO]	Reception cache hit = 76.6865 %
+[INFO]	Interference cache hit = 66.6667 %
+[INFO]	Noise cache hit = 0 %
+[INFO]	SNIR cache hit = 50 %
+[INFO]	Reception decision cache hit = 50 %
+[INFO]	Reception result cache hit = 0 %
+[INFO]	RplNetworkGrid63.sink[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.sink[0].app[0]: received 1696 packets
+[INFO]	RplNetworkGrid63.sink[0].app[1]: received 44 packets
+[INFO]	RplNetworkGrid63.host[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[1].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[2].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[3].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[4].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[5].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[6].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[7].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[8].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[9].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[10].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[11].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[12].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[13].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[14].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[15].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[16].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[17].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[18].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[19].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[20].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[21].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[22].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[23].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[24].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[25].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[26].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[27].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[28].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[29].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[30].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[31].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[32].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[33].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[34].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[35].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[36].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[37].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[38].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[39].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[40].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[41].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[42].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[43].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[44].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[45].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[46].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[47].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[48].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[49].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[50].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[51].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[52].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[53].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[54].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[55].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[56].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[57].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[58].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[59].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[60].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[61].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid63.host[62].tcp: finishing with 0 connections open.
+
+<!> Fingerprint mismatch! calculated: 1171-9379/tplx, ff95-229e/tplx, expected: 0000-0000/tplx,0000-0000/tplx
+
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+
+End.
+rc=0

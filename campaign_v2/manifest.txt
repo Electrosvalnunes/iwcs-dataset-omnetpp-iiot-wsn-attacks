@@ -1,0 +1,109 @@
+# Manifest - campanha IWCS v2
+
+## Repositórios (tag ambiente-revisao-v1)
+MAIO_RPL27 tag ambiente-revisao-v1 -> 28f09d729e03d40dd86a8529dcffe7054b0fcc92
+MAIO_RPL27 src/ e simulations/ idênticos à tag: sim
+OMET57/inet tag ambiente-revisao-v1 -> 62282fdcc99868db3ba723c4597559eb2c5fb7f2
+OMET57/inet HEAD -> 62282fdcc99868db3ba723c4597559eb2c5fb7f2  (igual à tag: sim)
+
+## Versões
+OMNeT++: Version: 5.7.1, build: 230913-ec6b029097, edition: Academic Public License -- NOT FOR COMMERCIAL USE  (/home/osvaldo/Downloads/omnetpp-5.7.1)
+INET: inet-4.2.10-d4450211fd  (INETDefs.h: INET_VERSION=0x0402 INET_PATCH_LEVEL=0x0A )
+Compilador: Ubuntu clang version 14.0.0-1ubuntu1.1
+SO: Linux 6.8.0-138-generic
+
+## Binários e entradas (sha256)
+78a178e809ac58a42172a297a6dacdaef63d391a70bacc131f118919b8b5b76b  OMET57/inet/src/libINET.so
+50bb4369afaeb738d5dd827b4e268ad73358537fd8e8fe62afd17848a2e6d652  OMET57/MAIO_RPL27/src/libMAIO_RPL27.so
+0b8072bcec903431a4058a19918084377726fa9fa9962499532aedca6ec09b89  OMET57/MAIO_RPL27/simulations/omnetpp_RPL_GRID35_NORMAL.ini
+431b3b49342241bf43938452ae61fa93a2635b0a7d13da838f3e965e826e11b9  OMET57/MAIO_RPL27/simulations/omnetpp_RPL_GRID48_NORMAL.ini
+8ba985f70df8e4b62c729d3a6bcb9b7f77c54ce5267cf54fa552a2f3c1a25d29  OMET57/MAIO_RPL27/simulations/omnetpp_RPL_GRID63_NORMAL.ini
+c8a54e26dca4c1171f8a8a09b542335f67a5609bebf80e98c857b549a6efa2ce  OMET57/MAIO_RPL27/simulations/omnetpp_RPL_GRID99_NORMAL.ini
+f8fc185780fff0edfd53be19259584ecfcaf42703de74b453dde8b9989a2dcd9  OMET57/MAIO_RPL27/simulations/RplNetworkGrid35.ned
+f94ed510e9c31c2cbc6dce1601307df21a54888fada05bc4662b2082be84debe  OMET57/MAIO_RPL27/simulations/RplNetworkGrid48.ned
+dd4ccd595f2d883fd1f19f4b0db2e094c8b686b0c591a8aec75b1dbb3289a166  OMET57/MAIO_RPL27/simulations/RplNetworkGrid63.ned
+52e262ee2ab2e1cb3edb5000c2e1dc0b4d9babc689748e3b65015ba19ed01771  OMET57/MAIO_RPL27/simulations/RplNetworkGrid99.ned
+e8e42c2e8c09442e87ca3c0a2bd109786152a03ef598d28d855ecedf100a8f1f  OMET57/MAIO_RPL27/src/Rpl.ned
+5ef88cc94f3fe0989f706778f1c9ebf391098419ae2149ae08514de70ff789e6  OMET57/MAIO_RPL27/campaign_v2/cells.csv
+98b73be367b86e7441298ae8edc6e3ec166742423207564ce02eba620e197d0c  OMET57/MAIO_RPL27/campaign_v2/run_campaign.sh
+
+## Linha de comando exata por run (cwd = MAIO_RPL27/simulations)
+opp_run -u Cmdenv -l <MAIO_RPL27>/src/MAIO_RPL27 -n <MAIO_RPL27>/simulations:<MAIO_RPL27>/src:<OMET57>/inet/src \
+  -f <ini> -c <config> -r <run> --sim-time-limit=3600s --result-dir=<MAIO_RPL27>/campaign_v2/results \
+  '--**.vector-recording=false' --cmdenv-express-mode=true --cmdenv-status-frequency=600s
+
+## RNG
+num-rngs=10 (cMersenneTwister, default); seed-set não definido => ${runnumber} (seedset = run); runs 0-29.
+Mapeamento: **.mobility.rng-0=1 (não usado: posições fixas), **.wlan[*].mac.rng-0=2, restantes módulos RNG 0.
+
+## Canal (tal como corre)
+As linhas **.radioMedium.attenuation.* dos .ini são inertes (não existe esse submódulo no INET 4.2.10).
+Modelo efetivo: BreakpointPathLoss (l01=40.2, alpha1=2, l02=58.5, alpha2=3.3, breakpoint 8 m), sem shadowing.
+
+# =============================================================================
+# Manifest: adendo A1 da campanha IWCS v2 (capacidade da bateria do sink nas runs de Flooding)
+
+## O que muda
+Só nas runs de Flooding que falharam na campanha principal (21 de 600), repetidas com
+campaign_v2/rerun_sink_capacity.sh. A linha de comando é a da campanha
+(ver "Linha de comando exata por run"), com mais duas opções:
+  --**.sink[*].energyStorage.nominalCapacity=1500J
+  --**.sink[*].energyStorage.initialCapacity=1500J
+1500 J é a capacidade dos sensores (**.host[*].energyStorage). Os .ini, o run_campaign.sh,
+as sementes (seed-set = run) e o resto da linha de comando não mudam.
+Cada .ok repetido inclui as linhas "sink_capacity_override=1500J" e "addendum=A1", e o
+progress.tsv regista o estado OK_A1. O log da tentativa falhada fica em <config>-<run>.log.A0.
+
+## Porquê
+Os .ini dão ao sink[0] uma bateria SimpleEpEnergyStorage de 55 J nas células de Flooding.
+A capacidade foi calibrada pelo autor com uma única semente, para ficar perto de zero sem lá
+chegar. Quando a capacidade chega a 0 J, o SimpleEpEnergyStorage lança uma
+ModuleCrashOperation no nó, operação que o Icmpv6 do INET 4.2.10 não suporta. A simulação
+termina então com
+  <!> Error: Unsupported lifecycle operation 'inet::ModuleCrashOperation' -- in module (inet::Icmpv6) <rede>.sink[0].ipv6.icmpv6
+e não grava nenhum .sca. Isto é uma limitação do framework, documentada no próprio .ini.
+Na campanha principal (2026-11-13 07:09 a 2026-11-14 04:21):
+  Grid35_Flooding_Host20  15/30 runs falhadas  (1,4,5,8,9,10,11,12,14,15,17,18,19,23,29)
+  Grid48_Flooding_Host24   6/30 runs falhadas  (2,14,16,19,22,25)
+  Grid63_Flooding_Host27   0/30   (resíduo mínimo do sink nas runs OK: 0.20 J)
+  Grid99_Flooding_Host53   0/30   (resíduo mínimo do sink nas runs OK: 1.31 J)
+Todas as 21 falhas têm esta causa, com o erro entre t = 3575.4 s e 3599.4 s (mediana 3593.6 s).
+Não há outras falhas na campanha.
+Excluir estas runs criaria um viés de sobrevivência: nas duas células ficariam só as sementes
+em que o sink sobreviveu, isto é, as runs em que o sink consumiu menos energia.
+
+## Prova de equivalência (o tamanho da bateria não afeta a rede enquanto não se esgota)
+Runs Grid35_Flooding_Host20 r0 (resíduo de 0.126 J, a mais próxima de esgotar) e
+Grid63_Flooding_Host27 r0, corridas com 55 J e com 1500 J e com dois fingerprints tplx:
+  F_all = todos os módulos;  F_net = --fingerprint-modules="not **.sink*.energyStorage"
+
+                        eventos      F_all        F_net
+  G35 r0  55 J         92891808   0c77-4f34    b0b7-0be8
+  G35 r0  1500 J       92891712   4712-cefb    b0b7-0be8
+  G63 r0  55 J        157887618   1171-9379    ff95-229e
+  G63 r0  1500 J      157887522   cc80-54a9    ff95-229e
+
+- F_net é igual com as duas capacidades: todos os eventos fora da bateria do sink (rede, MAC,
+  rádio, aplicações e baterias dos sensores) são idênticos, pela mesma ordem e nos mesmos
+  instantes.
+- A diferença de 96 eventos, igual nas duas células, vem só do temporizador interno do
+  SimpleEpEnergyStorage. Esse temporizador dispara a cada printCapacityStep, que por omissão
+  vale 1 % da capacidade nominal (0.55 J com 55 J, 15 J com 1500 J): são cerca de 99 disparos
+  com 55 J e cerca de 3 com 1500 J, para cerca de 54.9 J consumidos. Cada disparo só atualiza
+  a capacidade residual.
+- .sca linha a linha: excluindo os cabeçalhos de execução (datetime, processid, runId,
+  resultdir), as duas linhas param da opção e o único scalar do sink[0].energyStorage
+  (residualEnergyCapacity:last), os .sca de 55 J e de 1500 J são idênticos, com 0 linhas de
+  diferença. O .sca de 55 J também é idêntico ao da campanha principal, com 0 linhas de
+  diferença, o que confirma a reprodutibilidade.
+- Nenhuma feature nem coluna auxiliar de extract_v2.py usa o sink[0].energyStorage, porque
+  H exclui o sink.
+Conclusão: até ao instante em que a bateria de 55 J se esgotaria, uma run com 1500 J é
+idêntica, evento a evento, à mesma run com 55 J. Nas 21 runs repetidas, o resultado difere da
+tentativa original apenas depois desse instante (os últimos 0.6 a 24.6 s antes dos 3600 s),
+quando a original abortou. Em todas as runs de Flooding, as que passaram à primeira e as
+repetidas, o resultado é por isso o que se obtém com um sink de 1500 J. As células ficam
+homogéneas.
+Provas (logs, .sca e resumo): docs/verificacao/sink_capacity_A1/.
+
+sha256 rerun_sink_capacity.sh: 235996f8e8e0cb57b036c0d1d3881f91ff62c7ad842774af116a949f59e61545

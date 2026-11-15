@@ -1,0 +1,225 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2021 Andras Varga, OpenSim Ltd.
+Version: 5.7.1, build: 230913-ec6b029097, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Cmdenv...
+
+Loading NED files from .:  6
+Loading NED files from ../src:  4
+Loading NED files from ../../inet/src:  831
+
+Preparing for running configuration Grid35_Normal, run #0...
+Assigned runID=Grid35_Normal-0-20261113-04:36:13-37039
+Setting up network "RplNetworkGrid35"...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 1.1e-05s (0m 00s)  0% completed  (0% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 973   present: 973   in FES: 145
+** Event #107290   t=200   Elapsed: 0.893357s (0m 00s)  100% completed  (100% total)
+     Speed:     ev/sec=120098   simsec/sec=223.46   ev/simsec=537.449
+     Messages:  created: 155268   present: 1080   in FES: 122
+
+<!> Simulation time limit reached -- at t=200s, event #107290
+
+Calling finish() at end of Run #0...
+[INFO]	Radio signal arrival computation count = 45955
+[INFO]	Transmission count = 1313
+[INFO]	Signal send count = 45955
+[INFO]	Reception computation count = 45955
+[INFO]	Interference computation count = 139106
+[INFO]	Reception decision computation count = 4888
+[INFO]	Listening decision computation count = 88275
+[INFO]	Reception cache hit = 76.9539 %
+[INFO]	Interference cache hit = 66.6667 %
+[INFO]	Noise cache hit = 0 %
+[INFO]	SNIR cache hit = 50 %
+[INFO]	Reception decision cache hit = 50 %
+[INFO]	Reception result cache hit = 0 %
+[INFO]	RplNetworkGrid35.sink[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.sink[0].app[0]: received 111 packets
+[INFO]	RplNetworkGrid35.host[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[1].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[2].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[3].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[4].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[5].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[6].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[7].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[8].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[9].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[10].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[11].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[12].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[13].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[14].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[15].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[16].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[17].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[18].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[19].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[20].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[21].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[22].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[23].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[24].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[25].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[26].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[27].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[28].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[29].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[30].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[31].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[32].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[33].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[34].tcp: finishing with 0 connections open.
+
+<!> Fingerprint mismatch! calculated: 7fc2-5062/tplx, expected: 0000-0000/tplx
+
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[0].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[1].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[1].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[2].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[3].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[3].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[3].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[3].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[4].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[4].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[5].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[6].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[7].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[7].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[7].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[8].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[8].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[8].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[8].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[9].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[10].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[11].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[12].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[12].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[13].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[13].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[13].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[14].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[14].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[14].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[14].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[14].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[15].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[16].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[16].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[16].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[17].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[17].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[18].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[19].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[20].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[21].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[21].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[21].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[21].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[21].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[22].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[23].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[23].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[24].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[24].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[24].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[24].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[25].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[25].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[26].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[27].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[27].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[27].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[27].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[28].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[29].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[30].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[31].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[32].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[33].rpl. -- check module destructor
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[33].rpl. -- check module destructor
+[INFO]	Clear all sockets
+undisposed object: (omnetpp::cMessage) RplNetworkGrid35.host[34].rpl. -- check module destructor
+
+End.

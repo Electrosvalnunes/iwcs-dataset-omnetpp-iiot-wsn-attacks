@@ -1,0 +1,2 @@
+643f5903d94ea5a61bb1d651f310900908cee6d219881b1a742c0a81884ac958  antes/Grid35_Wormhole_Host20_Host0-0.vec (sem cabeçalho variável)
+643f5903d94ea5a61bb1d651f310900908cee6d219881b1a742c0a81884ac958  depois/Grid35_Wormhole_Host20_Host0-0.vec (sem cabeçalho variável)

@@ -1,0 +1,21 @@
+cell_id,ini,config,topology,n_nodes,condition,attacker_nodes,tunnels,attack_params,est_events_M
+G35-NORMAL,omnetpp_RPL_GRID35_NORMAL.ini,Grid35_Normal,Grid35,36,Normal,,,,1.23
+G35-BLACKHOLE,omnetpp_RPL_GRID35_NORMAL.ini,Grid35_Blackhole_Host20,Grid35,36,Blackhole,host[20],,maliciousRank=1 + descarte de trânsito; 100-3400s,1.19
+G35-FLOODING,omnetpp_RPL_GRID35_NORMAL.ini,Grid35_Flooding_Host20,Grid35,36,Flooding,host[20],,app[1] UDP 152B a cada 0.005s -> sink:1001; 100-3400s,92.60
+G35-BACKOFF,omnetpp_RPL_GRID35_NORMAL.ini,Grid35_Backoff_Host20,Grid35,36,Backoff,host[20],,MAC minBE=maxBE=maxCSMABackoffs=0 desde t=0 + app[1] UDP 152B a cada 0.0182s -> sink:1001 100-3400s,88.87
+G35-WORMHOLE,omnetpp_RPL_GRID35_NORMAL.ini,Grid35_Wormhole_Host20_Host0,Grid35,36,Wormhole,host[3],host[20]<->host[3],maliciousRank=1 + descarte de trânsito no extremo malicioso; túnel 300ms/20kbps/PER0.15; 100-3400s,1.20
+G48-NORMAL,omnetpp_RPL_GRID48_NORMAL.ini,Grid48_Normal,Grid48,49,Normal,,,,2.47
+G48-BLACKHOLE,omnetpp_RPL_GRID48_NORMAL.ini,Grid48_Blackhole_Host24,Grid48,49,Blackhole,host[24],,maliciousRank=1 + descarte de trânsito; 100-3400s,2.50
+G48-FLOODING,omnetpp_RPL_GRID48_NORMAL.ini,Grid48_Flooding_Host24,Grid48,49,Flooding,host[24],,app[1] UDP 152B a cada 0.005s -> sink:1001; 100-3400s,122.11
+G48-BACKOFF,omnetpp_RPL_GRID48_NORMAL.ini,Grid48_Backoff_Host24,Grid48,49,Backoff,host[24],,MAC minBE=maxBE=maxCSMABackoffs=0 desde t=0 + app[1] UDP 152B a cada 0.0182s -> sink:1001 100-3400s,118.70
+G48-WORMHOLE,omnetpp_RPL_GRID48_NORMAL.ini,Grid48_Wormhole_Host24_Host44,Grid48,49,Wormhole,host[44],host[24]<->host[44],maliciousRank=1 + descarte de trânsito no extremo malicioso; túnel 300ms/20kbps/PER0.15; 100-3400s,2.48
+G63-NORMAL,omnetpp_RPL_GRID63_NORMAL.ini,Grid63_Normal,Grid63,64,Normal,,,,4.91
+G63-BLACKHOLE,omnetpp_RPL_GRID63_NORMAL.ini,Grid63_Blackhole_Host27,Grid63,64,Blackhole,host[27],,maliciousRank=1 + descarte de trânsito; 100-3400s,4.54
+G63-FLOODING,omnetpp_RPL_GRID63_NORMAL.ini,Grid63_Flooding_Host27,Grid63,64,Flooding,host[27],,app[1] UDP 152B a cada 0.004s -> sink:1001; 100-3400s,157.65
+G63-BACKOFF,omnetpp_RPL_GRID63_NORMAL.ini,Grid63_Backoff_Host27,Grid63,64,Backoff,host[27],,MAC minBE=maxBE=maxCSMABackoffs=0 desde t=0 + app[1] UDP 152B a cada 0.0182s -> sink:1001 100-3400s,153.43
+G63-WORMHOLE,omnetpp_RPL_GRID63_NORMAL.ini,Grid63_Wormhole_Duplo,Grid63,64,Wormhole,host[58];host[3],host[27]<->host[58];host[26]<->host[3],maliciousRank=1 + descarte de trânsito nos extremos maliciosos; túneis 300ms/10kbps/PER0.25; 100-3400s,4.60
+G99-NORMAL,omnetpp_RPL_GRID99_NORMAL.ini,Grid99_Normal,Grid99,100,Normal,,,,120.58
+G99-BLACKHOLE,omnetpp_RPL_GRID99_NORMAL.ini,Grid99_Blackhole_Host53,Grid99,100,Blackhole,host[53],,maliciousRank=1 + descarte de trânsito; 100-3400s,111.80
+G99-FLOODING,omnetpp_RPL_GRID99_NORMAL.ini,Grid99_Flooding_Host53,Grid99,100,Flooding,host[53],,app[1] UDP 152B a cada 0.004s -> sink:1001; 100-3400s,321.42
+G99-BACKOFF,omnetpp_RPL_GRID99_NORMAL.ini,Grid99_Backoff_Host53,Grid99,100,Backoff,host[53],,MAC minBE=maxBE=maxCSMABackoffs=0 desde t=0 + app[1] UDP 152B a cada 0.0182s -> sink:1001 100-3400s,329.95
+G99-WORMHOLE,omnetpp_RPL_GRID99_NORMAL.ini,Grid99_Wormhole_Quadruplo,Grid99,100,Wormhole,host[4];host[40];host[93];host[48],host[53]<->host[4];host[44]<->host[40];host[34]<->host[93];host[43]<->host[48],maliciousRank=1 + descarte de trânsito nos extremos maliciosos; túneis 300ms/20kbps/PER0.15; 100-3400s,80.78

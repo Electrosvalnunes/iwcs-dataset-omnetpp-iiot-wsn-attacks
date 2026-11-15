@@ -1,0 +1,8 @@
+config=Grid35_Normal run=0 sim-time-limit=200s ini=omnetpp_RPL_GRID35_NORMAL.ini
+lib_antes  sha256=2bb1779939e80c3b7608a144e4f38612a4c13e972418f7ed8254f7cfae34efd3
+lib_depois sha256=50bb4369afaeb738d5dd827b4e268ad73358537fd8e8fe62afd17848a2e6d652
+fingerprint_antes=7fc2-5062/tplx eventos_antes=107290
+fingerprint_depois_verificado=SIM eventos_depois=107290
+sca_linhas_alteradas_ou_removidas=0
+sca_linhas_adicionadas=180 : daoAckReceivedCount(36) daoDroppedCount(36) daoForwardedCount(36) daoReceivedCount(36) daoSentCount(36) 
+vec=identico (56955 linhas)

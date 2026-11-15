@@ -1,0 +1,64 @@
+# Manifest: adendo A1 da campanha IWCS v2 (capacidade da bateria do sink nas runs de Flooding)
+
+## O que muda
+Só nas runs de Flooding que falharam na campanha principal (21 de 600), repetidas com
+campaign_v2/rerun_sink_capacity.sh. A linha de comando é a da campanha
+(ver "Linha de comando exata por run"), com mais duas opções:
+  --**.sink[*].energyStorage.nominalCapacity=1500J
+  --**.sink[*].energyStorage.initialCapacity=1500J
+1500 J é a capacidade dos sensores (**.host[*].energyStorage). Os .ini, o run_campaign.sh,
+as sementes (seed-set = run) e o resto da linha de comando não mudam.
+Cada .ok repetido inclui as linhas "sink_capacity_override=1500J" e "addendum=A1", e o
+progress.tsv regista o estado OK_A1. O log da tentativa falhada fica em <config>-<run>.log.A0.
+
+## Porquê
+Os .ini dão ao sink[0] uma bateria SimpleEpEnergyStorage de 55 J nas células de Flooding.
+A capacidade foi calibrada pelo autor com uma única semente, para ficar perto de zero sem lá
+chegar. Quando a capacidade chega a 0 J, o SimpleEpEnergyStorage lança uma
+ModuleCrashOperation no nó, operação que o Icmpv6 do INET 4.2.10 não suporta. A simulação
+termina então com
+  <!> Error: Unsupported lifecycle operation 'inet::ModuleCrashOperation' -- in module (inet::Icmpv6) <rede>.sink[0].ipv6.icmpv6
+e não grava nenhum .sca. Isto é uma limitação do framework, documentada no próprio .ini.
+Na campanha principal (2026-11-13 07:09 a 2026-11-14 04:21):
+  Grid35_Flooding_Host20  15/30 runs falhadas  (1,4,5,8,9,10,11,12,14,15,17,18,19,23,29)
+  Grid48_Flooding_Host24   6/30 runs falhadas  (2,14,16,19,22,25)
+  Grid63_Flooding_Host27   0/30   (resíduo mínimo do sink nas runs OK: 0.20 J)
+  Grid99_Flooding_Host53   0/30   (resíduo mínimo do sink nas runs OK: 1.31 J)
+Todas as 21 falhas têm esta causa, com o erro entre t = 3575.4 s e 3599.4 s (mediana 3593.6 s).
+Não há outras falhas na campanha.
+Excluir estas runs criaria um viés de sobrevivência: nas duas células ficariam só as sementes
+em que o sink sobreviveu, isto é, as runs em que o sink consumiu menos energia.
+
+## Prova de equivalência (o tamanho da bateria não afeta a rede enquanto não se esgota)
+Runs Grid35_Flooding_Host20 r0 (resíduo de 0.126 J, a mais próxima de esgotar) e
+Grid63_Flooding_Host27 r0, corridas com 55 J e com 1500 J e com dois fingerprints tplx:
+  F_all = todos os módulos;  F_net = --fingerprint-modules="not **.sink*.energyStorage"
+
+                        eventos      F_all        F_net
+  G35 r0  55 J         92891808   0c77-4f34    b0b7-0be8
+  G35 r0  1500 J       92891712   4712-cefb    b0b7-0be8
+  G63 r0  55 J        157887618   1171-9379    ff95-229e
+  G63 r0  1500 J      157887522   cc80-54a9    ff95-229e
+
+- F_net é igual com as duas capacidades: todos os eventos fora da bateria do sink (rede, MAC,
+  rádio, aplicações e baterias dos sensores) são idênticos, pela mesma ordem e nos mesmos
+  instantes.
+- A diferença de 96 eventos, igual nas duas células, vem só do temporizador interno do
+  SimpleEpEnergyStorage. Esse temporizador dispara a cada printCapacityStep, que por omissão
+  vale 1 % da capacidade nominal (0.55 J com 55 J, 15 J com 1500 J): são cerca de 99 disparos
+  com 55 J e cerca de 3 com 1500 J, para cerca de 54.9 J consumidos. Cada disparo só atualiza
+  a capacidade residual.
+- .sca linha a linha: excluindo os cabeçalhos de execução (datetime, processid, runId,
+  resultdir), as duas linhas param da opção e o único scalar do sink[0].energyStorage
+  (residualEnergyCapacity:last), os .sca de 55 J e de 1500 J são idênticos, com 0 linhas de
+  diferença. O .sca de 55 J também é idêntico ao da campanha principal, com 0 linhas de
+  diferença, o que confirma a reprodutibilidade.
+- Nenhuma feature nem coluna auxiliar de extract_v2.py usa o sink[0].energyStorage, porque
+  H exclui o sink.
+Conclusão: até ao instante em que a bateria de 55 J se esgotaria, uma run com 1500 J é
+idêntica, evento a evento, à mesma run com 55 J. Nas 21 runs repetidas, o resultado difere da
+tentativa original apenas depois desse instante (os últimos 0.6 a 24.6 s antes dos 3600 s),
+quando a original abortou. Em todas as runs de Flooding, as que passaram à primeira e as
+repetidas, o resultado é por isso o que se obtém com um sink de 1500 J. As células ficam
+homogéneas.
+Provas (logs, .sca e resumo): docs/verificacao/sink_capacity_A1/.

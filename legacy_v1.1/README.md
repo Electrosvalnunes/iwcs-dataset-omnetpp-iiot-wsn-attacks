@@ -1,3 +1,9 @@
+> **DEPRECATED.** IWCS-Dataset v1.1.0 is superseded by **v2.0.0**
+> (DOI [10.5281/zenodo.24224309](https://doi.org/10.5281/zenodo.24224309)); see the
+> [repository README](../README.md) and [`DEPRECATED.md`](DEPRECATED.md). This folder keeps the
+> v1.1.0 repository content unchanged, for traceability of earlier work only. Paths below are
+> relative to this folder. **Do not mix v1.1 with v2.**
+
 # IWCS-Dataset
 
 The **IWCS-Dataset** is a simulation-based dataset for cyberattack analysis in Industrial Internet of Things (IIoT) wireless sensor networks. The current release, **v1.1.0**, documents **20,331 curated records and 16 attributes** derived from an OMNeT++/INET campaign with IEEE 802.15.4, IPv6/RPL, UDP traffic, four grid topology labels, and five controlled operating conditions.

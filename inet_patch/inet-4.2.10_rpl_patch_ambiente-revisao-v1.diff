@@ -1,0 +1,490 @@
+diff --git a/src/inet/linklayer/base/MacProtocolBase.h b/src/inet/linklayer/base/MacProtocolBase.h
+index 39330e8..149cceb 100644
+--- a/src/inet/linklayer/base/MacProtocolBase.h
++++ b/src/inet/linklayer/base/MacProtocolBase.h
+@@ -28,6 +28,9 @@ namespace inet {
+ 
+ class INET_API MacProtocolBase : public LayeredProtocolBase, public cListener
+ {
++  public:
++    InterfaceEntry *interfaceEntry = nullptr;
++
+   protected:
+     /** @brief Gate ids */
+     //@{
+@@ -37,8 +40,6 @@ class INET_API MacProtocolBase : public LayeredProtocolBase, public cListener
+     int lowerLayerOutGateId = -1;
+     //@}
+ 
+-    InterfaceEntry *interfaceEntry = nullptr;
+-
+     /** Currently transmitted frame if any */
+     Packet *currentTxFrame = nullptr;
+ 
+diff --git a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.cc b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.cc
+index cb3ea42..8ba6b73 100644
+--- a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.cc
++++ b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.cc
+@@ -43,6 +43,8 @@ namespace inet {
+ #define MK_RD_TIMEOUT                  5
+ #define MK_NUD_TIMEOUT                 6
+ #define MK_AR_TIMEOUT                  7
++#define WIND_SEND_DELAYED              8 // CUSTOM msg kind for WIND (wireless neighbor discovery)
++
+ 
+ Define_Module(Ipv6NeighbourDiscovery);
+ 
+@@ -91,6 +93,15 @@ void Ipv6NeighbourDiscovery::initialize(int stage)
+     if (stage == INITSTAGE_LOCAL) {
+         const char *crcModeString = par("crcMode");
+         crcMode = parseCrcMode(crcModeString, false);
++        nsFwdDelay = par("nsForwardingDelay").doubleValue();
++
++        EV_DETAIL << "ns forwarding delay: " << nsFwdDelay << endl;
++
++        pAddRandomDelays = par("addRandomDelays").boolValue();
++        pRandomDelayMin = par("randomDelayMin").doubleValue();
++        pRandomDelayMax = par("randomDelayMax").doubleValue();
++
++        EV_DETAIL << "pAddRandomDelays enabled: " << pAddRandomDelays << " in range " << pRandomDelayMin << "-" << pRandomDelayMax << endl;
+     }
+     else if (stage == INITSTAGE_NETWORK_LAYER) {
+         cModule *node = findContainingNode(this);
+@@ -178,6 +189,13 @@ void Ipv6NeighbourDiscovery::handleMessage(cMessage *msg)
+             EV_INFO << "Address Resolution Timeout message received\n";
+             processArTimeout(msg);
+         }
++        // CUSTOM WiND SECTION
++        else if (msg->getKind() == WIND_SEND_DELAYED) {
++            auto ci = check_and_cast<Ipv6NdPacketInfo*> (msg->getControlInfo());
++            sendPacketToIpv6Module(ci->getMsgPtr(), ci->getDestAddr(), ci->getSrcAddr(), ci->getInterfaceId());
++            delete msg;
++        }
++        // END CUSTOM SECTION
+         else
+             throw cRuntimeError("Unrecognized Timer"); //stops sim w/ error msg.
+     }
+@@ -479,6 +497,11 @@ Ipv6Address Ipv6NeighbourDiscovery::determineNextHop(const Ipv6Address& destAddr
+ 
+ void Ipv6NeighbourDiscovery::initiateNeighbourUnreachabilityDetection(Neighbour *nce)
+ {
++    // CUSTOM WiND PART
++    if (par("disableNud").boolValue())
++        return;
++    // END CUSTOM PART
++
+     ASSERT(nce->reachabilityState == Ipv6NeighbourCache::STALE);
+     ASSERT(nce->nudTimeoutEvent == nullptr);
+     const Key *nceKey = nce->nceKey;
+@@ -686,7 +709,11 @@ void Ipv6NeighbourDiscovery::initiateAddressResolution(const Ipv6Address& dgSrcA
+     cMessage *msg = new cMessage("arTimeout", MK_AR_TIMEOUT);    //AR msg timer
+     nce->arTimer = msg;
+     msg->setContextPointer(nce);
+-    scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getRetransTimer(), msg);
++//    scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getRetransTimer(), msg); ORIGINAL
++
++    // CUSTOM WiND PART - retry NS messages after slightly randomized timeouts to avoid deadlocks
++    // when cells overlap in TSCH
++    scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->getRetransTimer() + uniform(0, nsFwdDelay), msg);
+ }
+ 
+ void Ipv6NeighbourDiscovery::processArTimeout(cMessage *arTimeoutMsg)
+@@ -704,7 +731,10 @@ void Ipv6NeighbourDiscovery::processArTimeout(cMessage *arTimeoutMsg)
+         Ipv6Address nsDestAddr = nsTargetAddr.formSolicitedNodeMulticastAddress();
+         createAndSendNsPacket(nsTargetAddr, nsDestAddr, nce->nsSrcAddr, ie);
+         nce->numOfARNSSent++;
+-        scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getRetransTimer(), arTimeoutMsg);
++        // CUSTOM WIND PART - retry NS messages after slightly randomized timeouts to avoid deadlocks with overlapping cells
++        scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getRetransTimer() + uniform(0, nsFwdDelay), arTimeoutMsg);
++        // OG
++//        scheduleAt(simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getRetransTimer(), arTimeoutMsg);
+         return;
+     }
+ 
+@@ -743,6 +773,22 @@ void Ipv6NeighbourDiscovery::dropQueuedPacketsAwaitingAr(Neighbour *nce)
+     neighbourCache.remove(nceKey->address, nceKey->interfaceID);
+ }
+ 
++void Ipv6NeighbourDiscovery::sendPacketToIpv6Module(Packet *msg, const Ipv6Address& destAddr, const Ipv6Address& srcAddr, int interfaceId, double delay)
++{
++
++    if (delay <= 0)
++        sendPacketToIpv6Module(msg, destAddr, srcAddr, interfaceId);
++    else
++    {
++        auto selfmsg = new cMessage("WiND delayed packet");
++        auto controlInfo = new Ipv6NdPacketInfo(msg, destAddr, srcAddr, interfaceId);
++        selfmsg->setControlInfo(controlInfo);
++        selfmsg->setKind(WIND_SEND_DELAYED);
++
++        scheduleAt(simTime() + delay, selfmsg);
++    }
++}
++
+ void Ipv6NeighbourDiscovery::sendPacketToIpv6Module(Packet *msg, const Ipv6Address& destAddr,
+         const Ipv6Address& srcAddr, int interfaceId)
+ {
+@@ -789,15 +835,32 @@ void Ipv6NeighbourDiscovery::assignLinkLocalAddress(cMessage *timerMsg)
+             //if no link local address exists for this interface, we assign one to it.
+             EV_INFO << "No link local address exists. Forming one" << endl;
+             linkLocalAddr = Ipv6Address().formLinkLocalAddress(ie->getInterfaceToken());
++            EV_DETAIL << "Formed link local address - " << linkLocalAddr << endl;
+             ie->getProtocolData<Ipv6InterfaceData>()->assignAddress(linkLocalAddr, true, SIMTIME_ZERO, SIMTIME_ZERO);
++            // CUSTOM WiND PART
++            if (par("skipDad").boolValue()) {
++                makeTentativeAddressPermanent(linkLocalAddr, ie);
++                EV_DETAIL << "and assigned permanent" << endl;
++            }
++
++            // END CUSTOM PART
+         }
+ 
+         //Before we can use this address, we MUST initiate DAD first.
+         if (ie->getProtocolData<Ipv6InterfaceData>()->isTentativeAddress(linkLocalAddr)) {
+-            if (ie->getProtocolData<Ipv6InterfaceData>()->getDupAddrDetectTransmits() > 0)
+-                initiateDad(linkLocalAddr, ie);
+-            else
++
++            // CUSTOM WiND PART
++            if (par("skipDad").boolValue())
+                 makeTentativeAddressPermanent(linkLocalAddr, ie);
++            // END CUSTOM PART
++            else
++            {
++                if (ie->getProtocolData<Ipv6InterfaceData>()->getDupAddrDetectTransmits() > 0)
++                    initiateDad(linkLocalAddr, ie);
++                else
++                    makeTentativeAddressPermanent(linkLocalAddr, ie);
++            }
++
+         }
+     }
+     delete timerMsg;
+@@ -811,6 +874,7 @@ void Ipv6NeighbourDiscovery::initiateDad(const Ipv6Address& tentativeAddr, Inter
+     ie->getProtocolData<Ipv6InterfaceData>()->setDadInProgress(true);
+ #endif /* WITH_xMIPv6 */
+ 
++    EV_INFO << "----------INITIATING DUPLICATE ADDRESS DISCOVERY----------" << endl;
+     DadEntry *dadEntry = new DadEntry();
+     dadEntry->interfaceId = ie->getInterfaceId();
+     dadEntry->address = tentativeAddr;
+@@ -1231,13 +1295,13 @@ void Ipv6NeighbourDiscovery::createAndSendRaPacket(const Ipv6Address& destAddr,
+             interface.  (Assumption: We always send this)*/
+         auto sla = new Ipv6NdSourceLinkLayerAddress();
+         sla->setLinkLayerAddress(ie->getMacAddress());
+-        ra->getOptionsForUpdate().appendOption(sla);
++        ra->getOptionsForUpdate().insertOption(sla);
+         ra->addChunkLength(IPv6ND_LINK_LAYER_ADDRESS_OPTION_LENGTH);
+ 
+         // set MTU option
+         auto mtu = new Ipv6NdMtu();
+         mtu->setMtu(ie->getProtocolData<Ipv6InterfaceData>()->getAdvLinkMtu());
+-        ra->getOptionsForUpdate().appendOption(mtu);
++        ra->getOptionsForUpdate().insertOption(mtu);
+         ra->addChunkLength(IPv6ND_MTU_OPTION_LENGTH);
+ 
+         //Add all Advertising Prefixes to the RA
+@@ -1284,8 +1348,8 @@ void Ipv6NeighbourDiscovery::createAndSendRaPacket(const Ipv6Address& destAddr,
+ 
+             //- In the Preferred Lifetime field: the entry's AdvPreferredLifetime.
+             prefixInfo->setPreferredLifetime(SIMTIME_DBL(advPrefix.advPreferredLifetime));
+-            // Now we pop the prefix info into the RA.
+-            ra->getOptionsForUpdate().appendOption(prefixInfo);
++            //Now we pop the prefix info into the RA.
++            ra->getOptionsForUpdate().insertOption(prefixInfo);
+             ra->addChunkLength(IPv6ND_PREFIX_INFORMATION_OPTION_LENGTH);
+         }
+ 
+@@ -1647,6 +1711,11 @@ void Ipv6NeighbourDiscovery::processRaPrefixInfoForAddrAutoConf(const Ipv6NdPref
+ 
+ void Ipv6NeighbourDiscovery::createRaTimer(InterfaceEntry *ie)
+ {
++    // CUSTOM PART FOR WiND
++    if (!par("raEnabled").boolValue())
++        return;
++    // END CUSTOM PART
++
+     cMessage *msg = new cMessage("sendPeriodicRA", MK_SEND_PERIODIC_RTRADV);
+     msg->setContextPointer(ie);
+     AdvIfEntry *advIfEntry = new AdvIfEntry();
+@@ -1844,14 +1913,18 @@ void Ipv6NeighbourDiscovery::createAndSendNsPacket(const Ipv6Address& nsTargetAd
+             !dgSrcAddr.isUnspecified()) {
+         auto sla = new Ipv6NdSourceLinkLayerAddress();
+         sla->setLinkLayerAddress(myMacAddr);
+-        ns->getOptionsForUpdate().appendOption(sla);
++        ns->getOptionsForUpdate().insertOption(sla);
+         ns->addChunkLength(IPv6ND_LINK_LAYER_ADDRESS_OPTION_LENGTH);
+     }
+     auto packet = new Packet("NSpacket");
+     Icmpv6::insertCrc(crcMode, ns, packet);
+     packet->insertAtFront(ns);
+-    sendPacketToIpv6Module(packet, dgDestAddr, dgSrcAddr, ie->getInterfaceId());
++//    ORIGINAL
++//    sendPacketToIpv6Module(packet, dgDestAddr, dgSrcAddr, ie->getInterfaceId());
+ 
++    // CUSTOM WiND PART
++    auto timeoutValue = nsFwdDelay > 0 ? uniform(0, nsFwdDelay, myMacAddr.getInt() % 10) : 0; // FIXME: how to get num RNGs?
++    sendPacketToIpv6Module(packet, dgDestAddr, dgSrcAddr, ie->getInterfaceId(), timeoutValue);
+ }
+ 
+ void Ipv6NeighbourDiscovery::processNsPacket(Packet *packet, const Ipv6NeighbourSolicitation *ns)
+@@ -2034,7 +2107,7 @@ void Ipv6NeighbourDiscovery::sendSolicitedNa(Packet *packet, const Ipv6Neighbour
+        address, the Target Link-Layer option MUST be included in the advertisement.*/
+     auto tla = new Ipv6NdTargetLinkLayerAddress();
+     tla->setLinkLayerAddress(ie->getMacAddress());
+-    na->getOptionsForUpdate().appendOption(tla);
++    na->getOptionsForUpdate().insertOption(tla);
+     na->addChunkLength(IPv6ND_LINK_LAYER_ADDRESS_OPTION_LENGTH);
+ 
+     /*Furthermore, if the node is a router, it MUST set the Router flag to one;
+@@ -2131,7 +2204,7 @@ void Ipv6NeighbourDiscovery::sendUnsolicitedNa(InterfaceEntry *ie)
+     na->setTargetAddress(myIPv6Addr);
+     auto sla = new Ipv6NdTargetLinkLayerAddress();
+     sla->setLinkLayerAddress(ie->getMacAddress());
+-    na->getOptionsForUpdate().appendOption(sla);
++    na->getOptionsForUpdate().insertOption(sla);
+     na->addChunkLength(IPv6ND_LINK_LAYER_ADDRESS_OPTION_LENGTH);
+ #endif /* WITH_xMIPv6 */
+ 
+@@ -2295,7 +2368,8 @@ void Ipv6NeighbourDiscovery::processNaForIncompleteNceState(const Ipv6NeighbourA
+         if (naSolicitedFlag == true) {
+             nce->reachabilityState = Ipv6NeighbourCache::REACHABLE;
+             EV_INFO << "Reachability confirmed through successful Addr Resolution.\n";
+-            nce->reachabilityExpires = simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getReachableTime();
++            nce->reachabilityExpires = simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getReachableTime()
++                    + par("nceExpiryOverride"); // CUSTOM WiND PART
+         }
+         else
+             nce->reachabilityState = Ipv6NeighbourCache::STALE;
+@@ -2378,7 +2452,8 @@ void Ipv6NeighbourDiscovery::processNaForOtherNceStates(const Ipv6NeighbourAdver
+             if (msg != nullptr) {
+                 EV_INFO << "NUD in progress. Cancelling NUD Timer\n";
+                 bubble("Reachability Confirmed via NUD.");
+-                nce->reachabilityExpires = simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getReachableTime();
++                nce->reachabilityExpires = simTime() + ie->getProtocolData<Ipv6InterfaceData>()->_getReachableTime()
++                        + par("nceExpiryOverride"); // CUSTOM WiND PART
+                 cancelAndDelete(msg);
+                 nce->nudTimeoutEvent = nullptr;
+             }
+diff --git a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.h b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.h
+index 1d16963..4570251 100644
+--- a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.h
++++ b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.h
+@@ -53,6 +53,7 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+     typedef Ipv6NeighbourCache::Key Key;    //for convenience
+     typedef Ipv6NeighbourCache::Neighbour Neighbour;    // for convenience
+     typedef Ipv6NeighbourCache::DefaultRouterList DefaultRouterList;    // for convenience
++    Ipv6NeighbourCache neighbourCache;
+ 
+   public:
+     Ipv6NeighbourDiscovery();
+@@ -91,7 +92,7 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+      */
+     virtual void reachabilityConfirmed(const Ipv6Address& neighbour, int interfaceId);
+ 
+-  public:
++  protected:
+ 
+     //Packets awaiting Address Resolution or Next-Hop Determination.
+     cQueue pendingQueue;
+@@ -101,11 +102,15 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+     Icmpv6 *icmpv6 = nullptr;
+     CrcMode crcMode = CRC_MODE_UNDEFINED;
+ 
++
++    // CUSTOM PARAMETERS FOR WIRELESS NEIGHBOR DISCOVERY (WiND)
++    double nsFwdDelay;
++    bool pAddRandomDelays;
++
+ #ifdef WITH_xMIPv6
+     xMIPv6 *mipv6 = nullptr;    // in case the node has MIP support
+ #endif /* WITH_xMIPv6 */
+ 
+-    Ipv6NeighbourCache neighbourCache;
+     typedef std::set<cMessage *> RaTimerList;    //FIXME add comparator for stable fingerprints!
+ 
+     // stores information about a pending Duplicate Address Detection for
+@@ -168,6 +173,40 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+ #endif /* WITH_xMIPv6 */
+ 
+   protected:
++
++
++    // CUSTOM CLASS REQUIRED FOR WiND
++    class Ipv6NdPacketInfo : public cObject {
++        public:
++            Ipv6NdPacketInfo() {}
++            Ipv6NdPacketInfo(Packet *pkt, const Ipv6Address &destAddr, const Ipv6Address &srcAddr, int ie)
++            {
++                this->msgPtr = pkt;
++                this->destAddr = destAddr;
++                this->srcAddr = srcAddr;
++                this->interfaceId = ie;
++            }
++
++            const Ipv6Address& getDestAddr() const { return destAddr; }
++            void setDestAddr(const Ipv6Address &destAddr) { this->destAddr = destAddr; }
++
++            int getInterfaceId() const { return interfaceId; }
++            void setInterfaceId(int interfaceId) { this->interfaceId = interfaceId; }
++
++            Packet*& getMsgPtr() { return msgPtr; }
++            void setMsgPtr(Packet *&msgPtr) { this->msgPtr = msgPtr; }
++
++            const Ipv6Address& getSrcAddr() const { return srcAddr; }
++            void setSrcAddr(const Ipv6Address &srcAddr) { this->srcAddr = srcAddr; }
++
++        private:
++            Packet *msgPtr;
++            Ipv6Address destAddr;
++            Ipv6Address srcAddr;
++            int interfaceId;
++    };
++    // END CUSTOM CLASS
++
+     /************************Miscellaneous Stuff***************************/
+     virtual int numInitStages() const override { return NUM_INIT_STAGES; }
+     virtual void initialize(int stage) override;
+@@ -235,8 +274,10 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+      *  Create control info and assigns it to a msg. Returns a copy of the
+      *  msg with the control info.
+      */
+-    virtual void sendPacketToIpv6Module(Packet *msg, const Ipv6Address& destAddr,
+-            const Ipv6Address& srcAddr, int interfaceId);
++    virtual void sendPacketToIpv6Module(Packet *msg, const Ipv6Address& destAddr, const Ipv6Address& srcAddr, int interfaceId);
++
++    // CUSTOM WiND FUNCTION
++    virtual void sendPacketToIpv6Module(Packet *msg, const Ipv6Address& destAddr, const Ipv6Address& srcAddr, int interfaceId, double delay);
+ 
+     /**
+      *  Send off any queued packets within the Neighbour Discovery module
+@@ -353,6 +394,12 @@ class INET_API Ipv6NeighbourDiscovery : public cSimpleModule, public LifecycleUn
+ 
+     virtual void sendSolicitedNa(Packet *packet, const Ipv6NeighbourSolicitation *ns, InterfaceEntry *ie);
+ 
++    /** CUSTOM WIND PART **/
++    bool isAppPacket(Packet *packet);
++    double pRandomDelayMin;
++    double pRandomDelayMax;
++
++
+ #ifdef WITH_xMIPv6
+ 
+   public:    // update 12.9.07 - CB
+diff --git a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.ned b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.ned
+index b81d635..9858120 100644
+--- a/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.ned
++++ b/src/inet/networklayer/icmpv6/Ipv6NeighbourDiscovery.ned
+@@ -33,6 +33,22 @@ simple Ipv6NeighbourDiscovery
+         string icmpv6Module;
+         string xmipv6Module;
+         string routingTableModule;
++        
++        // CUSTOM WiND PARAMS
++        bool raEnabled = default(false); // Router Advertisements partially overlap with DIOs and can generally be disabled
++        bool addRandomDelays = default(true); // Add microseconds delay to each packet transmission to remedy infinite loop bug (and to help address resolution apparently?)
++        double randomDelayMax = default(0.5);
++        double randomDelayMin = default(0.3); 
++        bool skipDad = default(true); // Make link-local address permanent immediately, without launching DAD
++        bool disableNud = default(true); // Completely disable Neighbor Unreachability Detection
++        
++        // UPPER BOUND for the delay between NS packet generation and passing it to the IP layer,
++        // note there's no expiry time for a NS packet, so this shouldn't cause any issues with validation,
++        // but helps spread out in time NS packets from multiple neighbors
++        double nsForwardingDelay @unit("s") = default(0s);
++        double nceExpiryOverride @unit("s") = default(90000s); // override default lifetime duration of Neighbor Cache Entry
++        // END CUSTOM PARAMS
++        
+         double minIntervalBetweenRAs @unit(s) = default(30ms); //minRtrAdvInterval:  0.03 sec for MIPv6 , declared as parameter to facilitate testing without recompiling (Zarrar 15.07.07)
+         double maxIntervalBetweenRAs @unit(s) = default(70ms);  //MaxrtrAdvInterval: 0.07 sec for MIPv6, declared as parameter to facilitate testing without recompiling (Zarrar 15.07.07)
+         @display("i=block/network");
+diff --git a/src/inet/networklayer/ipv6/Ipv6.cc b/src/inet/networklayer/ipv6/Ipv6.cc
+index 7c2683c..e7a8c02 100644
+--- a/src/inet/networklayer/ipv6/Ipv6.cc
++++ b/src/inet/networklayer/ipv6/Ipv6.cc
+@@ -374,6 +374,12 @@ void Ipv6::datagramLocalOut(Packet *packet, const InterfaceEntry *destIE, Ipv6Ad
+         routeMulticastPacket(packet, destIE, nullptr, true);
+ }
+ 
++bool Ipv6::isAppPacket(Packet *packet) {
++    std::string packetName(packet->getFullName());
++
++    return packetName.find("App") != std::string::npos;
++}
++
+ void Ipv6::routePacket(Packet *packet, const InterfaceEntry *destIE, const InterfaceEntry *fromIE, Ipv6Address requestedNextHopAddress, bool fromHL)
+ {
+     auto ipv6Header = packet->peekAtFront<Ipv6Header>();
+@@ -407,7 +413,7 @@ void Ipv6::routePacket(Packet *packet, const InterfaceEntry *destIE, const Inter
+         }
+ 
+         // don't forward link-local addresses or weaker
+-        if (destAddress.isLinkLocal() || destAddress.isLoopback()) {
++        if ( (destAddress.isLinkLocal() || destAddress.isLoopback()) && !isAppPacket(packet) ) {
+             EV_INFO << "dest address is link-local (or weaker) scope, doesn't get forwarded\n";
+             delete packet;
+             return;
+diff --git a/src/inet/networklayer/ipv6/Ipv6.h b/src/inet/networklayer/ipv6/Ipv6.h
+index 0672585..f3cebbb 100644
+--- a/src/inet/networklayer/ipv6/Ipv6.h
++++ b/src/inet/networklayer/ipv6/Ipv6.h
+@@ -192,6 +192,8 @@ class INET_API Ipv6 : public cSimpleModule, public NetfilterBase, public Lifecyc
+ 
+     void sendIcmpError(Packet *origPacket, Icmpv6Type type, int code);
+ 
++    bool isAppPacket(Packet *packet);
++
+     // NetFilter functions:
+ 
+   protected:
+diff --git a/src/inet/visualizer/networklayer/NetworkRouteCanvasVisualizer.cc b/src/inet/visualizer/networklayer/NetworkRouteCanvasVisualizer.cc
+index 3999e50..f4eea59 100644
+--- a/src/inet/visualizer/networklayer/NetworkRouteCanvasVisualizer.cc
++++ b/src/inet/visualizer/networklayer/NetworkRouteCanvasVisualizer.cc
+@@ -29,6 +29,10 @@
+ #include "inet/networklayer/ipv4/Ipv4.h"
+ #endif
+ 
++#ifdef WITH_IPv6
++#include "inet/networklayer/ipv6/Ipv6.h"
++#endif
++
+ #include "inet/visualizer/networklayer/NetworkRouteCanvasVisualizer.h"
+ 
+ namespace inet {
+@@ -44,6 +48,11 @@ bool NetworkRouteCanvasVisualizer::isPathStart(cModule *module) const
+         return true;
+ #endif
+ 
++#ifdef WITH_IPv6
++    if (dynamic_cast<Ipv6 *>(module) != nullptr)
++        return true;
++#endif
++
+     return false;
+ }
+ 
+@@ -54,6 +63,11 @@ bool NetworkRouteCanvasVisualizer::isPathEnd(cModule *module) const
+         return true;
+ #endif
+ 
++#ifdef WITH_IPv6
++    if (dynamic_cast<Ipv6 *>(module) != nullptr)
++        return true;
++#endif
++
+     return false;
+ }
+ 
+@@ -74,6 +88,11 @@ bool NetworkRouteCanvasVisualizer::isPathElement(cModule *module) const
+         return true;
+ #endif
+ 
++#ifdef WITH_IPv6
++    if (dynamic_cast<Ipv6 *>(module) != nullptr)
++        return true;
++#endif
++
+     return false;
+ }
+ 

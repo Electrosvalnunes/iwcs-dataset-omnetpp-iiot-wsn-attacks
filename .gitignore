@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# IWCS v2.0.0: the equivalence-check logs are evidence and are versioned
+!docs/verificacao/**/*.log

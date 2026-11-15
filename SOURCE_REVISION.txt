@@ -1,0 +1,2 @@
+git commit (MAIO_RPL27): 160ee3bd589d10d77ef4c1c71a2e1ecfb4218435
+INET tag ambiente-revisao-v1: 62282fdcc99868db3ba723c4597559eb2c5fb7f2

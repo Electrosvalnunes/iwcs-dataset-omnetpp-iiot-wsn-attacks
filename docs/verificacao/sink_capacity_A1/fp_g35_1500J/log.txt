@@ -1,0 +1,122 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2021 Andras Varga, OpenSim Ltd.
+Version: 5.7.1, build: 230913-ec6b029097, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Cmdenv...
+
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/simulations:  6
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/src:  4
+Loading NED files from /home/osvaldo/Documentos/OMET57/MAIO_RPL27/../inet/src:  831
+
+Preparing for running configuration Grid35_Flooding_Host20, run #0...
+Assigned runID=Grid35_Flooding_Host20-0-20261114-04:26:14-163323
+Setting up network "RplNetworkGrid35"...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 1.2e-05s (0m 00s)  0% completed  (0% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 980   present: 980   in FES: 148
+** Event #62921984   t=2336.344464990613   Elapsed: 600.001s (10m 00s)  64% completed  (64% total)
+     Speed:     ev/sec=104870   simsec/sec=3.8939   ev/simsec=26931.8
+     Messages:  created: 89597404   present: 11339   in FES: 182
+** Event #92891712   t=3600   Elapsed: 914.584s (15m 14s)  100% completed  (100% total)
+     Speed:     ev/sec=95268.1   simsec/sec=3.85798   ev/simsec=24693.8
+     Messages:  created: 132266935   present: 11825   in FES: 108
+
+<!> Simulation time limit reached -- at t=3600s, event #92891712
+
+Calling finish() at end of Run #0...
+[INFO]	Radio signal arrival computation count = 38653825
+[INFO]	Transmission count = 1104395
+[INFO]	Signal send count = 38653825
+[INFO]	Reception computation count = 38653825
+[INFO]	Interference computation count = 116899542
+[INFO]	Reception decision computation count = 4400991
+[INFO]	Listening decision computation count = 73865458
+[INFO]	Reception cache hit = 77.1821 %
+[INFO]	Interference cache hit = 66.6667 %
+[INFO]	Noise cache hit = 0 %
+[INFO]	SNIR cache hit = 50 %
+[INFO]	Reception decision cache hit = 50 %
+[INFO]	Reception result cache hit = 0 %
+[INFO]	RplNetworkGrid35.sink[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.sink[0].app[0]: received 1147 packets
+[INFO]	RplNetworkGrid35.sink[0].app[1]: received 46 packets
+[INFO]	RplNetworkGrid35.host[0].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[1].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[2].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[3].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[4].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[5].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[6].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[7].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[8].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[9].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[10].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[11].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[12].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[13].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[14].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[15].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[16].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[17].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[18].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[19].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[20].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[21].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[22].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[23].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[24].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[25].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[26].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[27].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[28].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[29].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[30].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[31].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[32].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[33].tcp: finishing with 0 connections open.
+[INFO]	RplNetworkGrid35.host[34].tcp: finishing with 0 connections open.
+
+<!> Fingerprint mismatch! calculated: 4712-cefb/tplx, b0b7-0be8/tplx, expected: 0000-0000/tplx,0000-0000/tplx
+
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+[INFO]	Clear all sockets
+
+End.
+rc=0
